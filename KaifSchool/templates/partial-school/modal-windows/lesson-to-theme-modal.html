@@ -1,0 +1,108 @@
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+<div class="modal fade" id="AddLessonToThemeModal" tabindex="-1" aria-labelledby="AddThemeToLessonModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="logout-modal-header modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body auth-block">
+                <div class="col-md-12 my-4 ps-0">
+                    {% include 'partial/users-search.html' %}
+                </div>
+                <table class="col-md-11">
+                    <tbody>
+                    {% for lesson in lessons %}
+                        <tr class="user" data-user="{{ lesson.student.first_name }}" data-id="{{ lesson.student.pk }}">
+                            <td class="col-md-2 lesson-date">
+                                <div>{{ lesson.lesson_date }}</div>
+                            </td>
+                            <td class="pt-3 ps-2 col-md-2">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        {% if lesson.student.avatar %}
+                                            {% thumbnail lesson.student.avatar "45x45" crop="center" as im %}
+                                                <img src="{{ im.url }}" width="{{ im.width }}"
+                                                     height="{{ im.height }}"
+                                                     class="icon-round" alt="Avatar">
+                                            {% endthumbnail %}
+                                        {% else %}
+                                            <img src="{% render_initials_avatar name=lesson.student.first_name %}"
+                                                 class="icon-round" alt="Avatar">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-10" style="padding-left: 2rem;">
+                                        <div>{{ lesson.student.first_name }}</div>
+                                        <div class="td-inline">
+                                            <div class="id-icon">ID</div>
+                                            <p class="p-inline"> {{ lesson.student.pk }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="col-md-4">
+                                <div class="td-inline pt-2">
+                                    <p class="p-inline pt-3">Тема: </p>
+                                    <p class="p-inline pt-3" id="lesson-theme-{{ lesson.pk }}">
+                                        {% if lesson.theme %}
+                                            {{ lesson.theme|slice:":10" }}
+                                        {% else %}
+                                            {% bs_icon 'file-excel' size='1em' color='red' %}
+                                        {% endif %}
+                                    </p>
+                                </div>
+                            </td>
+                            <td class="pt-3 col-md-1" style="text-align: right">
+                                <button type="button" class="btn-green-plus-big" id="add-to-lesson"
+                                        data-lesson-pk="{{ lesson.pk }}" data-theme-pk="{{ theme.pk }}">+
+                                </button>
+                            </td>
+                            <td class="pt-3 col-md-2" style="text-align: right">
+                                <a href="{% url 'lesson' lesson.pk %}"
+                                   class="main-style-button">{% trans "в класс" %}</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% block script %}
+    <script src="{% static 'js/users-search.js' %}" defer></script>
+    <script>
+        $(document).ready(function () {
+            $("body").on("click", "#add-to-lesson", function (e) {
+                e.preventDefault();
+                const lesson_pk = $(this).data("lesson-pk");
+                console.log(lesson_pk)
+                const theme_pk = $(this).data("theme-pk");
+                console.log(theme_pk)
+                $.ajax({
+                    url: 'http://127.0.0.1:8000' + '{% url 'lesson_update_theme' %}',
+                    type: 'POST',
+                    dataType: 'json',
+                    headers: {
+                        "X-CSRFTOKEN": "{{ csrf_token }}"
+                    },
+                    data: {
+                        lesson_pk: lesson_pk,
+                        theme_pk: theme_pk
+                    },
+                    success: function (response) {
+                        console.log(response)
+                        if (response.success) {
+                            $(`#lesson-theme-${response.lesson}`).text(response.theme);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+

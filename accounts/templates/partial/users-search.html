@@ -1,0 +1,11 @@
+{% load bootstrap_icons %}
+{% load thumbnail %}
+{% load initials_avatar %}
+{% load i18n %}
+<div class="input-group">
+        <span class="search-icon input-group-text" id="basic-addon1">
+            {% bs_icon 'search' size='1em' extra_classes="search-icon" %}
+        </span>
+    <input type="text" class="user-search form-control" placeholder="{% trans "Введите имя или ID..." %}"
+           aria-label="Input group example" id="id_search">
+</div>

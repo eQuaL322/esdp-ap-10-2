@@ -1,0 +1,1948 @@
+[
+{
+  "model": "sessions.session",
+  "pk": "6f2b96johvad74ajlp73towapshw0vwi",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnZ4PhDSZ8zWOvdNQ4gR4qTCnF3iJQC2jcz76UibmuJW5MlTqwuCtTpd0tID6k74DvW26xprusyJb0r-qBNjzPL83q4fwcFW_nWOSciAwnQOWMs9zZQcAxi2Gfr0SOcM3QCHRnGAVyfXSC2IsHywEa9P_rlOG8:1qHkKs:8YieJ3F2qnxX0RTch7Q52F4PRKcwCTQejo7N-cMc9eg",
+    "expire_date": "2023-07-21T12:13:18.736Z"
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$Zl0qJ9vaSxPz9kwD0K0kiv$eE+Pq3wse3ujwPEUcaQPxnTehaFGLfMHVHrwb45LJKE=",
+    "last_login": "2023-07-07T12:13:18.733Z",
+    "is_superuser": true,
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-05-30T06:56:41.584Z",
+    "first_name": "Admin",
+    "first_name_ru": "Admin",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "admin@gmail.com",
+    "email": "admin@gmail.com",
+    "avatar": "",
+    "role": "Admin",
+    "timezone": "Asia/Almaty",
+    "phone": null,
+    "bio_text": "",
+    "bio_text_ru": "",
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$bTCA0QIzpS2oDIegMaMbkW$IEQpMB1H4HCgDncymXmYxXM00swSi4rvLJeUbQzgAMc=",
+    "last_login": "2023-06-01T17:39:41.855Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:02:53.502Z",
+    "first_name": "Jane",
+    "first_name_ru": "Jane",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "jane@gmail.com",
+    "email": "jane@gmail.com",
+    "avatar": "",
+    "role": "Admin",
+    "timezone": "Africa/Abidjan",
+    "phone": null,
+    "bio_text": "",
+    "bio_text_ru": "",
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$jgCeQV0bhH4zuA2CqiD0AS$4tPujIA2/51CXkm1NikvO38osTWpV4NI5rKEUBpjyns=",
+    "last_login": "2023-07-07T11:42:15.220Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:03:46.662Z",
+    "first_name": "Jack",
+    "first_name_ru": "Jack",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "jack@gmail.com",
+    "email": "jack@gmail.com",
+    "avatar": "",
+    "role": "Teacher",
+    "timezone": "Africa/Accra",
+    "phone": null,
+    "bio_text": "",
+    "bio_text_ru": "",
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$I4QK7HDdPwbNjXNcBqPndy$DQuqdIYl/t7Y4VxQEivAtekT7y3iBJ9Jjq1W6Nfy6WE=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:04:11.207Z",
+    "first_name": "Sara",
+    "first_name_ru": "Sara",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "sara@gmail.com",
+    "email": "sara@gmail.com",
+    "avatar": "",
+    "role": "Student",
+    "timezone": "Africa/Addis_Ababa",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$DYAvfjdNx0N1TX55kxLVxe$Ntk3C713O0Z70+saImiHe35oEbboP8Ikr6KFIQWhrWY=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:04:29.284Z",
+    "first_name": "Bob",
+    "first_name_ru": "Bob",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "bob@gmail.com",
+    "email": "bob@gmail.com",
+    "avatar": "",
+    "role": "Curator",
+    "timezone": "Africa/Algiers",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$UrUkMlOarlMJ6RK93RFKdN$JfNHzkOKcMdx+KiRtFlSokVcr16JsULu97VzZl0NAxs=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:12:31.475Z",
+    "first_name": "John",
+    "first_name_ru": "John",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "john@gmail.com",
+    "email": "john@gmail.com",
+    "avatar": "",
+    "role": "Supervisor",
+    "timezone": "Africa/Asmera",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$8USkGPqljcYK5eK8IwEx60$b7typnNWhi1Sa2TsNBJEF1bdaXReQJD7lvZ/cFDnnrw=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:13:13.515Z",
+    "first_name": "Tim",
+    "first_name_ru": "Tim",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "tim@gmail.com",
+    "email": "tim@gmail.com",
+    "avatar": "",
+    "role": "Marathon-curator",
+    "timezone": "Africa/Banjul",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$fBS4hvaRoWgtdMX7UH6t7g$vW5Fb5S1NaEoGTihzJIkqItW7e0sCwyjDfAcYZy7Fic=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:13:46.532Z",
+    "first_name": "Minho",
+    "first_name_ru": "Minho",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "minho@gmail.com",
+    "email": "minho@gmail.com",
+    "avatar": "",
+    "role": "Content-maker",
+    "timezone": "America/Adak",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$w4kebpuIfLCMWPMIjlMIoK$ZQEuyi0sHGQpmp/CALdZHYF5n4JkAChCMvV0pXujYqw=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:14:08.316Z",
+    "first_name": "Tomas",
+    "first_name_ru": "Tomas",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "tomas@gmail.com",
+    "email": "tomas@gmail.com",
+    "avatar": "",
+    "role": "Technical-support",
+    "timezone": "America/Belize",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$iPPHXq4vfwWapIjMxnIPSM$Xoa5HLKNWefLnvIv8CZXjJme94FrcWdKBkFjiiocRps=",
+    "last_login": "2023-05-30T07:50:46.961Z",
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T07:50:36.833Z",
+    "first_name": "Blake",
+    "first_name_ru": "Blake",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "blake@gmail.com",
+    "email": "blake@gmail.com",
+    "avatar": "",
+    "role": "Teacher",
+    "timezone": "America/Dawson_Creek",
+    "phone": null,
+    "bio_text": null,
+    "bio_text_ru": null,
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "accounts.account",
+  "fields": {
+    "password": "pbkdf2_sha256$600000$c5lPY5jupFLQLlecxjuiZ5$SzBXHwR/XH26qjV0Ng+58mzXwWfBqcY7ovsgGduM+DA=",
+    "last_login": null,
+    "is_superuser": false,
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-05-30T08:04:59.465Z",
+    "first_name": "Pip",
+    "first_name_ru": "Pip",
+    "first_name_en": null,
+    "last_name": null,
+    "last_name_ru": null,
+    "last_name_en": null,
+    "username": "pip@gmail.com",
+    "email": "pip@gmail.com",
+    "avatar": "",
+    "role": "Student",
+    "timezone": "America/Indiana/Petersburg",
+    "phone": null,
+    "bio_text": "",
+    "bio_text_ru": "",
+    "bio_text_en": null,
+    "groups": [],
+    "user_permissions": [],
+    "students_list": []
+  }
+},
+{
+  "model": "KaifSchool.lesson",
+  "pk": 1,
+  "fields": {
+    "teacher": [
+      "jack@gmail.com"
+    ],
+    "student": [
+      "pip@gmail.com"
+    ],
+    "theme": 1,
+    "is_trial": false,
+    "status": "Planned",
+    "duration": "01:00:00",
+    "lesson_date": "2023-05-19T12:00:00Z",
+    "created_at": "2023-05-30T08:13:35.866Z",
+    "hash_lesson": null,
+    "session_hash": null
+  }
+},
+{
+  "model": "KaifSchool.lesson",
+  "pk": 2,
+  "fields": {
+    "teacher": [
+      "blake@gmail.com"
+    ],
+    "student": [
+      "sara@gmail.com"
+    ],
+    "theme": 2,
+    "is_trial": false,
+    "status": "Ongoin",
+    "duration": "01:00:00",
+    "lesson_date": "2023-05-22T18:00:00Z",
+    "created_at": "2023-05-30T08:14:17.958Z",
+    "hash_lesson": null,
+    "session_hash": null
+  }
+},
+{
+  "model": "KaifSchool.lesson",
+  "pk": 3,
+  "fields": {
+    "teacher": [
+      "jack@gmail.com"
+    ],
+    "student": [
+      "pip@gmail.com"
+    ],
+    "theme": 2,
+    "is_trial": false,
+    "status": "Completed",
+    "duration": "01:00:00",
+    "lesson_date": "2023-07-07T07:00:19Z",
+    "created_at": "2023-06-30T07:00:22.028Z",
+    "hash_lesson": null,
+    "session_hash": null
+  }
+},
+{
+  "model": "KaifSchool.lessoncount",
+  "pk": 1,
+  "fields": {
+    "student": [
+      "sara@gmail.com"
+    ],
+    "balance": 0
+  }
+},
+{
+  "model": "KaifSchool.lessoncount",
+  "pk": 2,
+  "fields": {
+    "student": [
+      "pip@gmail.com"
+    ],
+    "balance": 0
+  }
+},
+{
+  "model": "KaifSchool.theme",
+  "pk": 1,
+  "fields": {
+    "title": "Math 1",
+    "description": "Math, fist lesson",
+    "cover": "",
+    "theme_creator": [
+      "jack@gmail.com"
+    ],
+    "exercise": 1,
+    "homework": 5
+  }
+},
+{
+  "model": "KaifSchool.theme",
+  "pk": 2,
+  "fields": {
+    "title": "Math 2",
+    "description": "",
+    "cover": "",
+    "theme_creator": [
+      "jack@gmail.com"
+    ],
+    "exercise": 2,
+    "homework": 10
+  }
+},
+{
+  "model": "KaifSchool.theme",
+  "pk": 3,
+  "fields": {
+    "title": "Math 3",
+    "description": "Math 3 lesson",
+    "cover": "",
+    "theme_creator": [
+      "blake@gmail.com"
+    ],
+    "exercise": 3,
+    "homework": 11
+  }
+},
+{
+  "model": "KaifSchool.theme",
+  "pk": 4,
+  "fields": {
+    "title": "Test",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo fuga impedit laudantium odio quia sunt ullam vitae! Itaque temporibus, vel!",
+    "cover": "",
+    "theme_creator": [
+      "jack@gmail.com"
+    ],
+    "exercise": 6,
+    "homework": 13
+  }
+},
+{
+  "model": "KaifSchool.theme",
+  "pk": 5,
+  "fields": {
+    "title": "material4",
+    "description": "Lorem ipsum",
+    "cover": "",
+    "theme_creator": [
+      "jack@gmail.com"
+    ],
+    "exercise": 9,
+    "homework": 11
+  }
+},
+{
+  "model": "KaifSchool.theme",
+  "pk": 6,
+  "fields": {
+    "title": "material5",
+    "description": "Lorem ipsum",
+    "cover": "",
+    "theme_creator": [
+      "jack@gmail.com"
+    ],
+    "exercise": 7,
+    "homework": 10
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 1,
+  "fields": {
+    "title": "Math 1 ex"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 2,
+  "fields": {
+    "title": "Math 2 ex"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 3,
+  "fields": {
+    "title": "Math 3 ex"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 4,
+  "fields": {
+    "title": "Math 4 ex"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 5,
+  "fields": {
+    "title": "Homework Math 1"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 6,
+  "fields": {
+    "title": "classwork1"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 7,
+  "fields": {
+    "title": "classwork1"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 8,
+  "fields": {
+    "title": "classwork1"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 9,
+  "fields": {
+    "title": "classwork1"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 10,
+  "fields": {
+    "title": "Homework Math 2"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 11,
+  "fields": {
+    "title": "Homework math 3"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 12,
+  "fields": {
+    "title": "классная работа"
+  }
+},
+{
+  "model": "KaifSchool.exercise",
+  "pk": 13,
+  "fields": {
+    "title": "Homework math 4"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 16,
+  "fields": {
+    "question": "Watch the video and....",
+    "exercise": 2,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://youtube.com/embed/t0Q2otsqC4I"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 18,
+  "fields": {
+    "question": "Какая планета расположена ближе всех к Солнцу?",
+    "exercise": 2,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 19,
+  "fields": {
+    "question": "Сколько клеток на шахматной доске?",
+    "exercise": 2,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 29,
+  "fields": {
+    "question": "Вопрос",
+    "exercise": 8,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 38,
+  "fields": {
+    "question": "What is a discussion? Watch the video...",
+    "exercise": 4,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://www.youtube.com/embed/DXCIDFDgWjM"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 39,
+  "fields": {
+    "question": "Разговорная практика",
+    "exercise": 4,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://youtube.com/embed/by1QAoRcc-U"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 40,
+  "fields": {
+    "question": "Сколько животных в каждом квадрате?",
+    "exercise": 4,
+    "task_type": 2,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task1_tBZiW3s.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 41,
+  "fields": {
+    "question": "Identify the given shape",
+    "exercise": 4,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task3.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 42,
+  "fields": {
+    "question": "How Many Sides Does a Octagon Have?",
+    "exercise": 4,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task4.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 43,
+  "fields": {
+    "question": "Halloween originated as an ancient Irish festival",
+    "exercise": 9,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 44,
+  "fields": {
+    "question": "Look at the picture and describe it",
+    "exercise": 9,
+    "task_type": 2,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task5.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 45,
+  "fields": {
+    "question": "What is not true according to the picture?",
+    "exercise": 9,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task5_S47bJdX.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 46,
+  "fields": {
+    "question": "Adjectives are so much fun and such an important way to learn to be a better writer and a more creative story teller.   This fun little lesson will open a whole new world of adjectives to you.",
+    "exercise": 9,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://youtube.com/embed/P3bPq0iLLV0"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 47,
+  "fields": {
+    "question": "The Lion and The Mouse (Fairy Tales)",
+    "exercise": 11,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://youtube.com/embed/YFNmuxiECA0"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 48,
+  "fields": {
+    "question": "Сколько животных в каждом квадрате?",
+    "exercise": 7,
+    "task_type": 2,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task1_olCnigD.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 49,
+  "fields": {
+    "question": "Identify the given shape",
+    "exercise": 7,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task3_aBhLK8x.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 50,
+  "fields": {
+    "question": "How Many Sides Does a Octagon Have?",
+    "exercise": 7,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task4_XGPrHbH.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 51,
+  "fields": {
+    "question": "What is a discussion?",
+    "exercise": 7,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://www.youtube.com/embed/DXCIDFDgWjM"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 52,
+  "fields": {
+    "question": "Halloween originated as an ancient Irish festival",
+    "exercise": 10,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 53,
+  "fields": {
+    "question": "Look at the picture and describe it",
+    "exercise": 10,
+    "task_type": 2,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task5_w2e6RI2.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 54,
+  "fields": {
+    "question": "What is not true according to the picture?",
+    "exercise": 10,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/task5_1ZGq8Ia.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 55,
+  "fields": {
+    "question": "This fun little lesson will open a whole new world of adjectives to you.",
+    "exercise": 10,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://youtube.com/embed/P3bPq0iLLV0"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 56,
+  "fields": {
+    "question": "why",
+    "exercise": 4,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 57,
+  "fields": {
+    "question": "question",
+    "exercise": 13,
+    "task_type": 1,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 59,
+  "fields": {
+    "question": "LearningApp",
+    "exercise": 4,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?app=17870969"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 60,
+  "fields": {
+    "question": "LearningApp",
+    "exercise": 1,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?app=5497218"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 61,
+  "fields": {
+    "question": "Matching pairs",
+    "exercise": 1,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?v=psw693dnt23"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 62,
+  "fields": {
+    "question": "Найдите соответствия",
+    "exercise": 1,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?app=22831541"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 63,
+  "fields": {
+    "question": "Complete the song",
+    "exercise": 1,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?app=6786525"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 64,
+  "fields": {
+    "question": "MATCH WITH THE CORRECT FEELING",
+    "exercise": 1,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?app=4149265"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 65,
+  "fields": {
+    "question": "Прилагательные с суффиксом -н-",
+    "exercise": 1,
+    "task_type": 3,
+    "task_body": null,
+    "task_text": null,
+    "file": "",
+    "url": "https://learningapps.org/watch?v=phr1bam4n23"
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 67,
+  "fields": {
+    "question": "why",
+    "exercise": 10,
+    "task_type": 2,
+    "task_body": null,
+    "task_text": null,
+    "file": "task_files/06c002e4ea31f6786112becca4bc7347029420da6010b3184d38e6512e2e6d14_EVxcbUW.jpg",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 68,
+  "fields": {
+    "question": "Расставьте слова в тексте",
+    "exercise": 10,
+    "task_type": 4,
+    "task_body": null,
+    "task_text": "Megan [loved] bears more than anything else in the whole world. She had a polar bear, a grizzly bear, a panda bear, and even a koala bear. She had other animals too, but it was only the bears that got to [sleep] in Megan's bed at night. Each night before bed, she gathered the bears around her and [tucked] them in. Before she [closed] her eyes she told each of the bears to behave. And, normally they did. But one summer night, the polar bear couldn't sleep.",
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.task",
+  "pk": 69,
+  "fields": {
+    "question": "Расставьте слова в тексте",
+    "exercise": 7,
+    "task_type": 4,
+    "task_body": null,
+    "task_text": "After school one winter day, Jack's mother told him to go out and play in the [snow] . \"But it's so cold outside, Mother!\" Jack said. \"Put on your [coat] and your hat and your mittens,\" his mother said. \"You can build a [snowman] before your father comes home.\" \"I'm going to need a carrot for the nose,\" Jack said. \"And I'll need some things for the snowman's hat and [face] .» Jack got a bucket and collected everything he needed to decorate his snowman. His mother promised she would watch him build the snowman from the [window] . Outside, in his front yard, Jack started with a very small [ball] of snow. He got on his knees and rolled the snow into a big ball. At another window, someone else was watching Jack play. It was his new neighbour Naoko. Naoko asked her mother if she could go outside and help Jack build his snowman.",
+    "file": "",
+    "url": null
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 24,
+  "fields": {
+    "task": 18,
+    "answer_text": "Марс",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 25,
+  "fields": {
+    "task": 18,
+    "answer_text": "Меркурий",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 26,
+  "fields": {
+    "task": 18,
+    "answer_text": "Юпитер",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 27,
+  "fields": {
+    "task": 18,
+    "answer_text": "Венера",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 28,
+  "fields": {
+    "task": 18,
+    "answer_text": "Плутон",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 29,
+  "fields": {
+    "task": 19,
+    "answer_text": "32",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 30,
+  "fields": {
+    "task": 19,
+    "answer_text": "16",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 31,
+  "fields": {
+    "task": 19,
+    "answer_text": "64",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 32,
+  "fields": {
+    "task": 19,
+    "answer_text": "48",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 48,
+  "fields": {
+    "task": 29,
+    "answer_text": "вариант1",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 49,
+  "fields": {
+    "task": 29,
+    "answer_text": "вариант2",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 50,
+  "fields": {
+    "task": 29,
+    "answer_text": "вариант3",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 76,
+  "fields": {
+    "task": 41,
+    "answer_text": "Rectangle",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 77,
+  "fields": {
+    "task": 41,
+    "answer_text": "Triangle",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 78,
+  "fields": {
+    "task": 41,
+    "answer_text": "Circle",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 79,
+  "fields": {
+    "task": 41,
+    "answer_text": "Square",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 80,
+  "fields": {
+    "task": 42,
+    "answer_text": "6",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 81,
+  "fields": {
+    "task": 42,
+    "answer_text": "7",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 82,
+  "fields": {
+    "task": 42,
+    "answer_text": "5",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 83,
+  "fields": {
+    "task": 42,
+    "answer_text": "8",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 84,
+  "fields": {
+    "task": 43,
+    "answer_text": "True",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 85,
+  "fields": {
+    "task": 43,
+    "answer_text": "False",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 86,
+  "fields": {
+    "task": 45,
+    "answer_text": "A brother and a sister have come to park to enjoy picnic",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 87,
+  "fields": {
+    "task": 45,
+    "answer_text": "There is a beautiful lake",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 88,
+  "fields": {
+    "task": 45,
+    "answer_text": "Three ducks are swimming in the like",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 89,
+  "fields": {
+    "task": 45,
+    "answer_text": "There are also many green trees in the park",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 90,
+  "fields": {
+    "task": 49,
+    "answer_text": "Rectangle",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 91,
+  "fields": {
+    "task": 49,
+    "answer_text": "Circle",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 92,
+  "fields": {
+    "task": 49,
+    "answer_text": "Triangle",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 93,
+  "fields": {
+    "task": 49,
+    "answer_text": "Square",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 94,
+  "fields": {
+    "task": 50,
+    "answer_text": "6",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 95,
+  "fields": {
+    "task": 50,
+    "answer_text": "8",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 96,
+  "fields": {
+    "task": 50,
+    "answer_text": "7",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 97,
+  "fields": {
+    "task": 50,
+    "answer_text": "9",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 98,
+  "fields": {
+    "task": 52,
+    "answer_text": "True",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 99,
+  "fields": {
+    "task": 52,
+    "answer_text": "False",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 100,
+  "fields": {
+    "task": 54,
+    "answer_text": "A brother and a sister have come to park to enjoy picnic",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 101,
+  "fields": {
+    "task": 54,
+    "answer_text": "There is a beautiful lake",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 102,
+  "fields": {
+    "task": 54,
+    "answer_text": "Three ducks are swimming in the like",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 103,
+  "fields": {
+    "task": 54,
+    "answer_text": "There are also many green trees in the park",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 104,
+  "fields": {
+    "task": 56,
+    "answer_text": "yes",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 105,
+  "fields": {
+    "task": 56,
+    "answer_text": "No",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 107,
+  "fields": {
+    "task": 57,
+    "answer_text": "option1",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 108,
+  "fields": {
+    "task": 57,
+    "answer_text": "option2",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 109,
+  "fields": {
+    "task": 57,
+    "answer_text": "option3",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 112,
+  "fields": {
+    "task": 61,
+    "answer_text": "yes",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 113,
+  "fields": {
+    "task": 61,
+    "answer_text": "no",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 121,
+  "fields": {
+    "task": 67,
+    "answer_text": "yes",
+    "is_correct": true
+  }
+},
+{
+  "model": "KaifSchool.taskanswer",
+  "pk": 122,
+  "fields": {
+    "task": 67,
+    "answer_text": "no",
+    "is_correct": false
+  }
+},
+{
+  "model": "KaifSchool.tasktype",
+  "pk": 1,
+  "fields": {
+    "title": "test"
+  }
+},
+{
+  "model": "KaifSchool.tasktype",
+  "pk": 2,
+  "fields": {
+    "title": "image"
+  }
+},
+{
+  "model": "KaifSchool.tasktype",
+  "pk": 3,
+  "fields": {
+    "title": "video"
+  }
+},
+{
+  "model": "KaifSchool.tasktype",
+  "pk": 4,
+  "fields": {
+    "title": "words-in-text"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||5b56ec5b8308cf478abc15ed58737873",
+  "fields": {
+    "value": "{\"name\": \"cache/13/a9/13a9d4c010324e9691692a4a5f544c60.jpg\", \"storage\": \"django.core.files.storage.filesystem.FileSystemStorage\", \"size\": [45, 45]}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||image||900663da9ca25e903247f51e9515ba52",
+  "fields": {
+    "value": "{\"name\": \"user_pic/john_doe_mgapNIq.jpeg\", \"storage\": \"django.core.files.storage.filesystem.FileSystemStorage\", \"size\": [191, 264]}"
+  }
+},
+{
+  "model": "thumbnail.kvstore",
+  "pk": "sorl-thumbnail||thumbnails||900663da9ca25e903247f51e9515ba52",
+  "fields": {
+    "value": "[\"5b56ec5b8308cf478abc15ed58737873\"]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-07-07T12:15:11.880Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "theme"
+    ],
+    "object_id": "4",
+    "object_repr": "Test",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u0431\\u043b\\u043e\\u0436\\u043a\\u0430\", \"\\u0423\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u0435\", \"\\u0414\\u043e\\u043c\\u0430\\u0448\\u043d\\u0435\\u0435 \\u0437\\u0430\\u0434\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-07-07T12:15:53.816Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "lesson"
+    ],
+    "object_id": "3",
+    "object_repr": "Jack - Pip - material2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043c\\u0430\", \"\\u0414\\u0430\\u0442\\u0430 \\u0438 \\u0432\\u0440\\u0435\\u043c\\u044f\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-07-07T12:54:55.600Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "theme"
+    ],
+    "object_id": "1",
+    "object_repr": "Math 1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043c\\u0430 \\u0443\\u0440\\u043e\\u043a\\u0430\", \"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-07-07T12:56:23.076Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "1",
+    "object_repr": "Math 1 ex",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-07-07T12:56:48.935Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "theme"
+    ],
+    "object_id": "1",
+    "object_repr": "Math 1",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0423\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.852Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "68",
+    "object_repr": "njn j",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.856Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "67",
+    "object_repr": "njnjdvgsdv",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.857Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "59",
+    "object_repr": "yukygu",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.859Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "58",
+    "object_repr": "mlkm",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.860Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "57",
+    "object_repr": "n m",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.861Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "55",
+    "object_repr": "mkmk",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.863Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "54",
+    "object_repr": "Ljjbbg",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.864Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "53",
+    "object_repr": "tttttt",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-07-07T12:58:44.865Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "52",
+    "object_repr": "tttttt",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-07-07T12:59:15.028Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "2",
+    "object_repr": "Math 2 ex",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-07-07T12:59:26.310Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "3",
+    "object_repr": "Math 3 ex",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-07-07T12:59:34.760Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "4",
+    "object_repr": "Math 4 ex",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-07-07T13:00:09.923Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "10",
+    "object_repr": "Homework math 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2023-07-07T13:00:17.766Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "10",
+    "object_repr": "Homework Math 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2023-07-07T13:00:26.994Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "11",
+    "object_repr": "Homework math 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2023-07-07T13:00:34.833Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "exercise"
+    ],
+    "object_id": "13",
+    "object_repr": "Homework math 4",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2023-07-07T13:01:01.010Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "theme"
+    ],
+    "object_id": "2",
+    "object_repr": "Math 2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043c\\u0430 \\u0443\\u0440\\u043e\\u043a\\u0430\", \"\\u0423\\u043f\\u0440\\u0430\\u0436\\u043d\\u0435\\u043d\\u0438\\u0435\", \"\\u0414\\u043e\\u043c\\u0430\\u0448\\u043d\\u0435\\u0435 \\u0437\\u0430\\u0434\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2023-07-07T13:01:06.781Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "theme"
+    ],
+    "object_id": "1",
+    "object_repr": "Math 1",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2023-07-07T13:01:30.069Z",
+    "user": [
+      "admin@gmail.com"
+    ],
+    "content_type": [
+      "KaifSchool",
+      "theme"
+    ],
+    "object_id": "3",
+    "object_repr": "Math 3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043c\\u0430 \\u0443\\u0440\\u043e\\u043a\\u0430\", \"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435\", \"\\u0414\\u043e\\u043c\\u0430\\u0448\\u043d\\u0435\\u0435 \\u0437\\u0430\\u0434\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+}
+]

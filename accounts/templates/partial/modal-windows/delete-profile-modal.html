@@ -1,0 +1,30 @@
+{% load static %}
+{% load i18n %}
+<div class="modal fade" id="DeleteProfileModal" tabindex="-1" aria-labelledby="DeleteProfileModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="width: 400px;">
+        <div class="modal-content">
+            <form action="{% url 'profile_delete' user_obj.pk %} " method="post">
+                {% csrf_token %}
+                <div class="logout-modal-header modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="auth" style="min-height: fit-content">
+                    <div class="modal-body auth-block" style="text-align: center">
+                        <img src="{% static 'img/Warning-icon.-The-attention-icon.png' %}" alt="smile"
+                             class="smile-img">
+                        <h2>{% trans "Удалить пользователя?" %}</h2>
+                        <p>{% blocktrans %}Вы уверены, что хотите удалить этого пользователя?{% endblocktrans %}</p>
+                    </div>
+                    <div class="modal-footer" style="border-top: none">
+                        <button type="button" class="logout-modal-btn btn btn-secondary" data-bs-dismiss="modal"
+                                aria-label="Close">{% trans "Нет" %}
+                        </button>
+                        <button type="submit" class="logout-modal-btn btn"
+                                style="background-color: #33ccff;">{% trans "Да" %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

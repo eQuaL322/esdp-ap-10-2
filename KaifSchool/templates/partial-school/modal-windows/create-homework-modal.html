@@ -1,0 +1,29 @@
+{% load static %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+<div class="modal fade" id="AddHomeWorkExerciseModal" tabindex="-1" aria-labelledby="AddHomeWorkExerciseModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="min-width: 400px;">
+        <div class="modal-content">
+            <form action="{% url 'exercise_create' theme.pk %}?exercise=homework" method="post">
+                {% csrf_token %}
+                <div class="logout-modal-header modal-header">
+                    <h5 class="modal-title profile-header">{% trans 'Добавить домашнюю работу' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="auth" style="min-height: fit-content">
+                    <div class="modal-body">
+                        {% bootstrap_form exercise_form %}
+                    </div>
+                    <div class="modal-footer" style="border-top: none">
+                        <button type="button" class="logout-modal-btn btn btn-secondary" data-bs-dismiss="modal"
+                                aria-label="Close">{% trans "Нет" %}
+                        </button>
+                        <button type="submit" class="logout-modal-btn btn logout-btn"
+                                style="background-color: #33ccff;">{% trans "Добавить" %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

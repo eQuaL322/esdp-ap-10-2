@@ -1,0 +1,106 @@
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+<div class="modal fade" id="AddThemeToLessonModal" tabindex="-1" aria-labelledby="AddThemeToLessonModalLabel"
+     role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="logout-modal-header modal-header" style="border-bottom: none">
+                <div class="profile-header my-1">
+                    {% trans "Материалы" %}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="margin-top: -20px;"></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <ul class="nav nav-borders" style="--bs-nav-link-hover-color: #9292A6;">
+                    <li class="nav-item" id="catalog">
+                        <div id="catalog-btn"
+                             style="cursor: pointer">{% trans "Каталог" %}</div>
+                    </li>
+                    <li class="nav-item ps-3" id="user-catalog">
+                        <div id="user-catalog-btn"
+                             style="cursor: pointer">{% trans " Личное" %}</div>
+                    </li>
+                </ul>
+                <hr style="margin-top: 0; color: #b2b2c3">
+                <div class="col-md-12 my-4 ps-0">
+                    {% include 'partial-school/themes-search.html' %}
+                </div>
+                <div class="col-md-11">
+                    <div class="card-list" id="card-list">
+                        <div class="row">
+                            {% for theme in themes %}
+                                <div class="card cards card-modal"
+                                     data-themeId={{ theme.id }}>
+                                    <div class="theme-card-{{ theme.id }}">
+                                        {% if theme.cover %}
+                                            <img src="{{ theme.cover.url }}"
+                                                 class="card-img-top card-fluid pt-2"
+                                                 alt="Cover">
+                                        {% else %}
+                                            <img src="{% render_initials_avatar name=theme.title %}"
+                                                 class="card-img-top card-fluid pt-2" alt="Cover">
+                                        {% endif %}
+                                        <div class="card-body">
+                                            <h5 class="card-theme-title">
+                                                {{ theme.title }}
+                                            </h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-2" id="exampleModalToggle2-{{ theme.id }}" aria-hidden="true"
+     aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="logout-modal-header modal-header" style="border-bottom: none">
+                <div class="profile-header my-1">
+                    {% trans "Материалы" %}
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        style="margin-top: -20px;"></button>
+            </div>
+            <div class="modal-body">
+                Скройте это модальное окно и покажите первое с помощью кнопки ниже.
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" data-bs-target="#exampleModalToggle"
+                        data-bs-toggle="modal">Вернуться к первому
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+{% block script %}
+    <script src="{% static 'js/themes-search.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $("#user-catalog-btn").click(function () {
+                $(".card").hide();
+                {% for theme in themes %}
+                    {% if theme.theme_creator == request.user %}
+                        $(".theme-card-{{ theme.id }}").closest(".card").show();
+                    {% endif %}
+                {% endfor %}
+                $(this).css("border-bottom", "3px solid #33ccff");
+                $("#catalog-btn").css("border-bottom", "none");
+            });
+
+            $("#catalog-btn").click(function () {
+                $(".card").show();
+                $(this).css("border-bottom", "3px solid #33ccff");
+                $("#user-catalog-btn").css("border-bottom", "none");
+            });
+        });
+    </script>
+{% endblock %}

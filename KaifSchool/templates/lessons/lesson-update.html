@@ -1,0 +1,231 @@
+{#{% extends 'base.html' %}#}
+{#{% load i18n %}#}
+{#{% load static %}#}
+{#{% load django_bootstrap5 %}#}
+{#{% block title %}Kaif School{% endblock %}#}
+{#{% block menu %}#}
+{#    <button type="button" class="btn-gray" onclick="history.back()">&#8592{% trans "Назад" %}</button>#}
+{#{% endblock %}#}
+{#{% block content %}#}
+{#    <script type="text/javascript" src="/admin/jsi18n/"></script>#}
+{#    <script type="text/javascript" src="{% url 'js' %}"></script>#}
+{#    <script type="text/javascript" src="/static/admin/js/core.js"></script>#}
+{#    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css"/>#}
+{#    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css"/>#}
+{#    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css"/>#}
+{#    <link rel="stylesheet" type="text/css" href="/static/admin/css/widgets.css"/>#}
+{#    {{ form.media }}#}
+{#    <style>#}
+{##}
+{#    </style>#}
+{#    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">#}
+{#        <div class="px-0 container-fluid col-md-10"><br><br>#}
+{#            <div class="page-container">#}
+{#                {% if 'lesson_update' in request.path %}<br>#}
+{#                    <form action="{% url 'lesson_update' lesson.pk %}" method="post">#}
+{#                        {% csrf_token %}#}
+{#                        {% bootstrap_form form %}#}
+{#                        <div class="btn__div">#}
+{#                            {% bootstrap_button button_type="submit" content='Внести изменения' %}#}
+{#                        </div>#}
+{#                    </form>#}
+{#                {% else %}<br>#}
+{#                    <div class="mr" style="margin: -5px 200px 200px">#}
+{#                        <div class="logout-modal-header modal-header">#}
+{#                            <h5 class="modal-title profile-header" style="margin: 0.5em 0 0.5em 0">Добавить урок</h5>#}
+{#                        </div>#}
+{#                        <br>#}
+{#                        <form action="{% url 'lesson_create' %}" method="post">#}
+{#                            {% csrf_token %}#}
+{#                            {% bootstrap_form form %}#}
+{#                            <div class="btn__div">#}
+{#                                {% bootstrap_button button_type="submit" content='Добавить урок' %}#}
+{#                            </div>#}
+{#                        </form>#}
+{#                    </div>#}
+{#                {% endif %}#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+{#{% endblock %}#}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon"
+          href="https://s3.eu-central-1.amazonaws.com/progressme.ru/files/Schools/0e070e0c-1e73-471d-a5bb-14843462ef4d.png"
+          type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css"/>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/forms.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/widgets.css"/>
+    <title>Blog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script type="text/javascript" src="{% url 'js' %}"></script>
+    <script type="text/javascript" src="/static/admin/js/core.js"></script>
+</head>
+<body>
+<style>
+    .form-select {
+        height: auto;
+    }
+</style>
+{{ form.media }}
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-md bg-body-tertiary shadow-sm" style="z-index: 10">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-1" href="{% url 'index' %}">
+                <img src="https://s3.eu-central-1.amazonaws.com/progressme.ru/files/SchoolLogoBig/6b8f7e9b-fd4f-40b8-b4a3-30fabff8e906.jpg"
+                     alt="logo" class="auth-logo">
+            </a>
+            <button type="button" class="btn-gray" onclick="history.back()">&#8592 {% trans "Назад" %}</button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Переключатель навигации">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                    <form action="{% url 'set_language' %}" method="post" class="form-inline mt-2" id="language-form"
+                          style="margin: 0; height: 1px">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ redirect_to }}">
+                        <div class="form-group mx-sm-3 mb-2" style="margin-top: -5px">
+                            <select name="language" class="form-select"
+                                    style="height: auto; margin-top: -3px; font-family: sans-serif"
+                                    onchange="document.getElementById('language-form').submit();">
+                                {% get_current_language as LANGUAGE_CODE %}
+                                {% get_available_languages as LANGUAGES %}
+                                {% get_language_info_list for LANGUAGES as languages %}
+                                {% for language in languages %}
+                                    <option value="{{ language.code }}"{% if language.code == LANGUAGE_CODE %}
+                                            selected{% endif %}>{{ language.name_local }} ({{ language.code }})
+                                    </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" style="font-size: initial; margin-top: -2px"
+                           href="{% url 'index' %}">{% trans "MainPageLink" %}</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        {% if user.avatar %}
+                            {% thumbnail user.avatar "45x45" crop="center" as im %}
+                                <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                                     class="icon-round" alt="account"
+                                     role="button" data-bs-toggle="dropdown"
+                                     aria-expanded="false" style="margin-top: -4px">
+                            {% endthumbnail %}
+                        {% else %}
+                            <img src="{% render_initials_avatar name=user.first_name %}" class="icon-round"
+                                 alt="account"
+                                 role="button" data-bs-toggle="dropdown"
+                                 aria-expanded="false" style="margin-top: -4px">
+                        {% endif %}
+                        <ul class="dropdown-menu" style="left: -182px">
+                            <li style="list-style-type: none">
+                                <a href="{% url 'profile-update' user.pk %}" class="dropdown-item"
+                                   style="color: rgb(82, 82, 102); font-size: 16px; cursor: pointer; margin: 0px 10px 0px 0px; font-weight: normal;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                         class="bi bi-gear-fill" viewBox="0 0 20 20">
+                                        <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"></path>
+                                    </svg>
+                                    {% trans "ProfileSettings" %}
+                                </a>
+                            </li>
+                            <li style="list-style-type: none">
+                                <div class="dropdown-item"
+                                     style="color: rgb(82, 82, 102); font-size: 16px; cursor: pointer; margin: 0px 10px 0px 0px; font-weight: normal;"
+                                     data-bs-toggle="modal" data-bs-target="#LogOutModal">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor"
+                                         class="bi bi-box-arrow-right" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                              d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0v2z"></path>
+                                        <path fill-rule="evenodd"
+                                              d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3z"></path>
+                                    </svg>
+                                    {% trans "LogOutButton" %}
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10"><br><br>
+            <div class="page-container">
+                <form action="{% url 'lesson_update' lesson.pk %}" method="post">
+                    {% csrf_token %}
+                    <p style="color: dimgray;">Статус</p><br>
+                    <select class="form-select" aria-label="Пример выбора по умолчанию" name="status" required>
+                      <option value="">{% trans 'Статус' %}</option>
+                        <option value="Planned">Запланирован</option>
+                        <option value="Ongoing">Идет</option>
+                        <option value="Completed">Прошёл</option>
+                        <option value="Canceled">Отменён</option>
+                    </select><br>
+                    <p style="color: dimgray;">Продолжительность</p><br>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="duration"
+                               id="flexRadioDefault1" value="30">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                            30 минут
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="duration"
+                               id="flexRadioDefault2" value="1" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            1 час
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="duration"
+                               id="flexRadioDefault2" value="1.5">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            1:30 часа
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="duration"
+                               id="flexRadioDefault2" value="2">
+                        <label class="form-check-label" for="flexRadioDefault2">
+                            2 часа
+                        </label>
+                    </div>
+                    <br>
+                    {% bootstrap_form form %}
+                    <button type="submit" class="btn"
+                            style="background: #33ccff; color: #ffffff; font-weight: 600">{% trans 'Внести изменения' %}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endif %}
+</body>
+</html>

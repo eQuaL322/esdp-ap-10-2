@@ -1,0 +1,30 @@
+{% load i18n %}
+<div class="profile-header">
+    {% trans "Пользователи" %}
+</div>
+<ul class="nav nav-borders" style="--bs-nav-link-hover-color: #9292A6;">
+    {% if request.user.role == 'Teacher' %}
+        <li class="nav-item" {% if page == 'students' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'students' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color"
+               href="{% url 'students_list' %}"{% endif %}>{% trans "Ученики" %}</a>
+        </li>
+    {% else %}
+        <li class="nav-item" {% if page == 'students' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'students' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color"
+               href="{% url 'students_list' %}"{% endif %}>{% trans "Ученики" %}</a>
+        </li>
+        <li class="nav-item" {% if page == 'teachers' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'teachers' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color"
+               href="{% url 'teachers_list' %}"{% endif %}>{% trans "Учителя" %}</a>
+        </li>
+        <li class="nav-item" {% if page == 'staff' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'staff' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color"
+               href="{% url 'staff_list' %}"{% endif %}>{% trans "Сотрудники" %}</a>
+        </li>
+    {% endif %}
+</ul>
+<hr>

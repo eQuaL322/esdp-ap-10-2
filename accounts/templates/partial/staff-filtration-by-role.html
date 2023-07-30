@@ -1,0 +1,32 @@
+{% load thumbnail %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% load i18n %}
+<div class="col-md-6 my-4">
+    <select name="role" id="staff-role" class="form-select">
+        <option selected value="None">{% trans "Фильтрация по доступу" %}</option>
+        {% for value, displayable in roles %}
+            <option value="{{ value }}">{{ displayable }}</option>
+        {% endfor %}
+    </select>
+</div>
+{% block script %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.form-select').on('change', function () {
+                const searchUserRole = $(this).val();
+                $('.user').each(function (idx, item) {
+                    const tr = $(item).attr("data-role");
+                    if (tr.indexOf(searchUserRole) >= 0 || searchUserRole.length < 1) {
+                        $(item).children().show();
+                    } else {
+                        $(item).children().hide();
+                        if (searchUserRole === 'None') {
+                            $(item).children().show();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

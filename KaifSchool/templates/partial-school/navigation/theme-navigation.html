@@ -1,0 +1,15 @@
+{% load i18n %}
+<div class="profile-header">
+    {% trans "Материалы" %}
+</div>
+<ul class="nav nav-borders" style="--bs-nav-link-hover-color: #9292A6;">
+    <li class="nav-item" {% if page == 'theme_list_catalog' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+        <a {% if page == 'theme_list_catalog' %}class="nav-color-active nav-color active" aria-current="page"
+           {% else %}class="nav-color" href="{% url 'theme_list_catalog' %}"{% endif %}>{% trans "Каталог" %}</a>
+    </li>
+    <li class="nav-item" {% if page == 'theme_list_personal' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+        <a {% if page == 'theme_list_personal' %}class="nav-color-active nav-color active" aria-current="page"
+           {% else %}class="nav-color" href="{% url 'theme_list_personal' %}"{% endif %}>{% trans "Личное" %}</a>
+    </li>
+</ul>
+<hr style="margin-top: 0; color: #b2b2c3">

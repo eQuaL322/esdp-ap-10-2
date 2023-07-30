@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% load static %}
+{% load initials_avatar %}
+{% load thumbnail %}
+{% block content %}{% block admin-content %}
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10">
+            {% include 'partial/navigation/main_users_navigation.html' with page='themes' %}
+            <div {% if user.role != "Admin" %}class="page-container" {% else %}class="page-container-admin"{% endif %}>
+                {% include 'partial-school/navigation/theme-navigation.html'  with page='theme_list_personal' %}
+                <br>
+                <div class="input-group">
+                        <span class="search-icon input-group-text" id="basic-addon1">
+                            {% bs_icon 'search' size='1em' extra_classes="search-icon" %}
+                        </span>
+                    <label for="filter"></label>
+                    <input type="search" name="" id="filter" class="filter form-control"
+                           placeholder="{% trans 'Введите название материала...' %}" onkeyup="filterTheme()">
+                </div>
+                <br>
+                <div class="card-list" id="card-list">
+                    <div class="row">
+                        {% for theme in request.user.theme_creator.all %}
+                            <div class="card theme-cards" style="padding: 0;">
+                                <a href="{% url 'theme_detail' theme.pk %}" class="nav-link" style="padding: 0">
+                                    {% if theme.cover %}
+                                        <img src="{{ theme.cover.url }}"
+                                             class="card-img-top card-fluid"
+                                             alt="Cover">
+                                    {% else %}
+                                        <img src="{% render_initials_avatar name=theme.title %}"
+                                             class="card-img-top card-fluid" alt="Cover">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <h5 class="card-theme-title">
+                                            {{ theme.title }}
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <br>
+                <div class="exercise-link" data-bs-toggle="modal"
+                     data-bs-target="#AddModal" style="margin-left: 23px">
+                    {% bs_icon 'plus-circle-fill' size='0.7em' extra_classes="fs-1 icon-l-nav" %}
+                    {% trans "Добавить" %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <form action="{% url 'theme_create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="modal fade" id="AddModal" tabindex="-1"
+             aria-labelledby="AddClassWorkExerciseModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" style="min-width: 400px;">
+                <div class="modal-content">
+                    {% csrf_token %}
+                    <div class="logout-modal-header modal-header">
+                        <h5 class="modal-title profile-header">{% trans 'Добавить материал' %}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="auth" style="min-height: fit-content">
+                        <div class="modal-body">
+                            {% bootstrap_form form %}
+                        </div>
+                        <div class="modal-footer" style="border-top: none">
+                            <button type="button" class="logout-modal-btn btn btn-secondary" data-bs-dismiss="modal"
+                                    aria-label="Close">{% trans "Нет" %}
+                            </button>
+                            <button type="submit" class="logout-modal-btn btn"
+                                    style="background-color: #33ccff;">{% trans "Добавить" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+{% endblock %}
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/themes-search.js' %}"></script>
+{% endblock %}

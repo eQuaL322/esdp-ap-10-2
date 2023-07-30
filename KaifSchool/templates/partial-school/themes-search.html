@@ -1,0 +1,12 @@
+{% load bootstrap_icons %}
+{% load i18n %}
+{% load static %}
+<div class="input-group">
+    <span class="search-icon input-group-text" id="basic-addon1">
+        {% bs_icon 'search' size='1em' extra_classes="search-icon" %}
+    </span>
+    <label for="filter"></label>
+    <input type="search" name="" id="filter" class="filter form-control"
+           placeholder="{% trans 'Введите название материала...' %}" onkeyup="filterTheme()">
+</div>
+<br>

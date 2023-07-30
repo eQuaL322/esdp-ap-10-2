@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block title %}Kaif School{% endblock %}
+{% block admin-content %}
+    {% if user.role == 'Admin' or user.is_superuser is True %}
+        <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+            <div class="px-0 container-fluid col-md-10">
+                <div class="page-container p-5">
+                    <div class="profile-header">
+                        {% trans "Регистрация пользователя" %}
+                    </div>
+                    <form method="post" action="{% url 'profile-create' %}">
+                        <div class="register-form">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <div class="row">
+                                <div class="col">
+                                    <input type="submit" class="main-style-button"
+                                           value="{% trans "Зарегистрировать" %}">
+                                </div>
+                                <div class="col">
+                                    <div class="button" style="display: flex; justify-content: end">
+                                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                                data-bs-target="#PasswordGeneratorModal">
+                                            {% trans "Сгенерировать пароль" %}
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% include 'partial/modal-windows/password-generator-modal.html' %}
+    {% endif %}
+{% endblock %}
+

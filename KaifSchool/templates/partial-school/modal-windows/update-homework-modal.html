@@ -1,0 +1,32 @@
+{% load static %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+<div class="modal fade" id="UpdateHomeworkModal" tabindex="-1" aria-labelledby="UpdateHomeworkModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="min-width: 400px;">
+        <div class="modal-content">
+            {% if theme.homework.pk %}
+                <div class="logout-modal-header modal-header">
+                    <h5 class="modal-title profile-header">{% trans 'Редактировать' %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="auth" style="min-height: fit-content">
+                    <form action="{% url 'exercise_update' theme.homework.pk %}" method="post">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            {{ homework_update_form.as_p }}
+                        </div>
+                        <div class="modal-footer" style="border-top: none; justify-content: center;">
+                            <button type="button" class="logout-modal-btn btn btn-secondary" data-bs-dismiss="modal"
+                                    aria-label="Close">{% trans "Нет" %}
+                            </button>
+                            <button type="submit" class="logout-modal-btn btn logout-btn"
+                                    style="background-color: #33ccff;">{% trans "Сохранить" %}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,386 @@
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon"
+          href="https://s3.eu-central-1.amazonaws.com/progressme.ru/files/Schools/0e070e0c-1e73-471d-a5bb-14843462ef4d.png"
+          type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+          rel="stylesheet">
+    <title>Kaif School</title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    {% if user.pk == lesson.student.pk or user.pk == lesson.teacher.pk %}
+        <nav class="navbar navbar-expand-md shadow-sm col-sm-12" style="z-index: 10; background-color: white;">
+            <div class="container-fluid">
+                <a class="navbar-brand ms-1" href="{% url 'index' %}">
+                    <img src="https://s3.eu-central-1.amazonaws.com/progressme.ru/files/SchoolLogoBig/6b8f7e9b-fd4f-40b8-b4a3-30fabff8e906.jpg"
+                         alt="logo" class="auth-logo">
+                </a>
+                <input type="button" class="btn-gray" onclick="history.back();" value="&#8592 {% trans "Назад" %}"/>
+                {% if user.role == "Teacher" %}
+                    {% if lesson.theme %}
+                        {% include 'partial-school/navigation/current-theme-in-navbar.html' with theme=lesson.theme %}
+                        <button class="btn-blue btn-gray" onclick="myFunction()"
+                                id="change-page-btn">{% trans "Домашняя работа" %}</button>
+                    {% else %}
+                        <a class="btn-blue btn-gray" data-bs-toggle="modal" href=""
+                           role="button">{% trans '+ добавить материал' %}</a>
+                    {% endif %}
+                {% elif user.role == "Student" %}
+                    <button class="btn-blue btn-gray" onclick="myFunction()"
+                            id="change-page-btn">{% trans "Домашняя работа" %}</button>
+                {% endif %}
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto me-4 mb-2 mb-lg-0">
+                        <li class="nav-item col-auto" style="margin-top: 0.7rem;">
+                            {% if user.role == "Teacher" and lesson.status == 'Planned' %}
+                                <a class="btn-green" href="{% url 'lesson_update_status' lesson.pk %}">
+                                    {% trans "Начать урок" %}
+                                </a>
+                            {% elif user.role == "Teacher" and lesson.status == 'Ongoing' %}
+                                <a class="btn-red" style="margin-top: 0.7rem;"
+                                   href="{% url 'lesson_update_status' lesson.pk %}">
+                                    {% trans "Завершить урок" %}
+                                </a>
+                            {% endif %}
+                        </li>
+                        <li class="nav-item dropdown col-auto">
+                            {% if lesson.teacher.avatar %}
+                                {% thumbnail user.avatar "45x45" crop="center" as im %}
+                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                                         class="icon-round me-2" alt="teacher" role="button"
+                                         data-bs-toggle="dropdown"
+                                         aria-expanded="false">
+                                {% endthumbnail %}
+                            {% else %}
+                                <img src="{% render_initials_avatar name=lesson.teacher.first_name %}"
+                                     class="icon-round me-2"
+                                     alt="teacher" role="button"
+                                         data-bs-toggle="dropdown"
+                                         aria-expanded="false">
+                            {% endif %}
+                          <div class="dropdown-menu" style="left: -400%;">
+                                <div class="card" style="width: 18rem; border: none; color: #525266;">
+                                    <div class="card-body">
+                                        <h5 class="current-lesson-title">{% trans 'Учитель' %}</h5>
+                                        <div>{{ lesson.teacher.first_name }} {{ lesson.teacher.last_name|default_if_none:'' }}</div>
+                                        <div class="td-inline">
+                                            <div class="id-icon">ID</div>
+                                            <p class="p-inline"> {{ lesson.teacher.pk }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="nav-item col-auto me-2" style="border-right: 2px solid #b2b2c3"></li>
+                        <li class="nav-item dropdown col-auto">
+                            {% if lesson.student.avatar %}
+                                {% thumbnail lesson.student.avatar "45x45" crop="center" as im %}
+                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                                         class="icon-round dropdown-toggle me-2" alt="student" role="button"
+                                         data-bs-toggle="dropdown"
+                                         aria-expanded="false">
+                                {% endthumbnail %}
+                            {% else %}
+                                <img src="{% render_initials_avatar name=lesson.student.first_name %}"
+                                     class="icon-round dropdown-toggle me-2"
+                                     alt="student" role="button" data-bs-toggle="dropdown"
+                                     aria-expanded="false">
+                            {% endif %}
+                            <div class="dropdown-menu" style="left: -400%;">
+                                <div class="card" style="width: 18rem; border: none; color: #525266;">
+                                    <div class="card-body">
+                                        <h5 class="current-lesson-title">{% trans 'Ученик' %}</h5>
+                                        <div>{{ lesson.student.first_name }} {{ lesson.student.last_name|default_if_none:'' }}</div>
+                                        <div class="td-inline">
+                                            <div class="id-icon">ID</div>
+                                            <p class="p-inline"> {{ lesson.student.pk }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+            <div class="px-0 container-fluid col-sm-9 me-1">
+                {% if lesson.theme %}
+                    <!-- Отображение классной работы -->
+                    <div id="classwork" style="display: block;">
+                        <h2 id="meet-name" class="text-center mt-4 exercise-title">{% trans "Упражнение" %}
+                            "{{ lesson.theme.exercise.title }}"</h2>
+                        {% for task in lesson.theme.exercise.task_exercise.all %}
+                            {% include 'partial-school/task-card.html' %}
+                        {% empty %}
+                            <div class="empty-container my-5">
+                                <div style="margin-top: 30%;">
+                                    <img src="{% static 'img/lesson-viewer-book.png' %}" alt="Book"
+                                         style="height: 115px; width: 115px;">
+                                    <h4 style="color: #b2b2c3; margin-bottom: 43px;">{% trans "Здесь пока нет заданий" %}</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <!-- Отображение домашней работы -->
+                    <div id="homework" style="display: none;" class="ms-3">
+                        <h2 class="text-center mt-4 exercise-title">{% trans "Упражнение" %}
+                            "{{ lesson.theme.homework.title }}"</h2>
+                        {% for task in lesson.theme.homework.task_exercise.all %}
+                            {% include 'partial-school/task-card.html' %}
+                        {% empty %}
+                            <div class="empty-container">
+                                <div style="margin-top: 30%;">
+                                    <img src="{% static 'img/lesson-viewer-book.png' %}" alt="Book"
+                                         style="height: 115px; width: 115px;">
+                                    <h4 style="color: #b2b2c3; margin-bottom: 43px;">{% trans "Здесь пока нет заданий" %}</h4>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <div class="empty-container">
+                        <div style="margin-top: 30%;">
+                            <img src="{% static 'img/lesson-viewer-book.png' %}" alt="Book"
+                                 style="height: 115px; width: 115px;">
+                            <h4 style="color: #b2b2c3; margin-bottom: 43px;">{% trans "Здесь пока нет заданий" %}</h4>
+                        </div>
+                        {% include 'partial-school/modal-windows/theme-to-lesson-modal.html' %}
+                    </div>
+                {% endif %}
+            </div>
+            <!-- Отображение окошка видеоконференции -->
+            <div class="px-0 container-fluid col-sm-2">
+                <div class="page-container shadow-sm"
+                     style="margin-top: 107px; min-height: 100px; position: fixed; width: inherit">
+                    <div class="video-conference">
+                        {% if lesson.status == "Ongoing" and user.role == 'Student' %}
+                            {#                            <div id="meetingFrame" class="embed-responsive embed-responsive-16by9"#}
+                            {#                                 style="width: 60px; height: 100px;">#}
+                            {% if lesson.hash_lesson and lesson.session_hash %}
+                                <div id="create-call" type="button" style="text-align: center">
+                                    <img src="{% static 'img/phone-calling.png' %}" width="64" height="64"
+                                         alt="incoming call">
+                                </div>
+                                <h5 class="start-call-text">{% trans "Начать урок" %}</h5>
+                                {% else %}
+                                <div type="button" style="text-align: center">
+                                <img src="{% static 'img/phone-not-allowed.png' %}" width="64" height="64"
+                                     alt="call">
+                            </div>
+                            <h5 class="not-allowed-call-text">{% trans "Ждите звонка ..." %}</h5>
+                            {% endif %}
+                        {% elif lesson.status == "Ongoing" and user.role == 'Teacher' %}
+                            <div id="btn-create-meeting" type="button" style="text-align: center">
+                                <img src="{% static 'img/phone.png' %}" width="64" height="64"
+                                     alt="call">
+                            </div>
+                            <h5 class="start-call-text">{% trans "Начать звонок" %}</h5>
+                            {#                            </div>#}
+                        {% elif lesson.status == "Planned" and user.role == 'Teacher' %}
+                            <div type="button" style="text-align: center">
+                                <img src="{% static 'img/phone-not-allowed.png' %}" width="64" height="64"
+                                     alt="call">
+                            </div>
+                            <h5 class="not-allowed-call-text">{% trans "Начните урок!" %}</h5>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <h3 style="text-align: center; margin-top: 100px;">У вас нет доступа к этому уроку!</h3>
+    {% endif %}
+{% endif %}
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('#btn-create-meeting').click(function (event) {
+            event.preventDefault();
+
+            let webinarName = encodeURIComponent($('#meet-name').text());
+            let webinarDate = $('#webinarDate').val();
+            // let webinarPass = encodeURIComponent($('#webinarPass').val());
+            // let webinarType = $('#webinarType').val();
+
+            console.log(webinarName);
+            console.log(webinarDate);
+
+            let currentDate = new Date();
+            let day = String(currentDate.getDate()).padStart(2, '0');
+            let month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Месяцы в JavaScript начинаются с 0, поэтому добавляем 1
+            let year = currentDate.getFullYear();
+            let hours = String(currentDate.getHours()).padStart(2, '0');
+            let minutes = String(currentDate.getMinutes()).padStart(2, '0');
+            let seconds = String(currentDate.getSeconds()).padStart(2, '0');
+
+            let formattedDate = `${day}.${month}.${year} ${hours}:${minutes}:${seconds}`;
+            console.log(formattedDate);
+
+
+            let createWebinarData = {
+                "name": webinarName,
+                "type": "meeting",
+                "password": "",
+                "publish": 1,
+                "use_record": 0,
+                "time": {
+                    "selected_date": formattedDate,
+                    "duration": 60,
+                    "zone_offset": -180
+                },
+                "questions": [
+                    {
+                        "name": "",
+                        "type": 1 // Тип вопроса ( 1 - Имя,3 - Email,4 - телефон, 0 - Любой другой)
+                    }
+                ],
+            };
+            console.log(createWebinarData)
+            let content = JSON.stringify(createWebinarData);
+            let base = btoa(content);
+            let postData = {
+                "user": "798fa12deb050afabfd1c6bd481c8633",
+                "key": "578b341dea8d2c84b714923bdd11736e",
+                "action": "webinar-create",
+                "content": base
+            };
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "https://pruffme.com/api/",
+                data: postData,
+                success: function (response) {
+                    console.log(response);
+                    let linkMeeting = `https://pruffme.com/webinar/?id=${response.webinar.hash}`
+                    window.open(linkMeeting, '_blank');
+                    let webinHash = response.webinar.hash
+                    let participantAdd = {
+                        "webinar": webinHash,  // hash вебинара, для которого создается участник     [Обязательное]
+                        "user": {                       // [Обязательное]
+                            "email": "example@gmail.com",     // уникальный логин участника
+                            "name": "john",
+                            "surname": "doe",
+                            "link": "",// Ссылка, куда перейдет участник после кнопки Выход, если вебинар на отдельной странице
+                            "role": "participant"         // Привилегии. Варианты ["moderator","publisher","participant"]
+                        }
+                    }
+                    let participant = JSON.stringify(participantAdd);
+                    let base2 = btoa(participant);
+                    let postData2 = {
+                        "user": "798fa12deb050afabfd1c6bd481c8633",
+                        "key": "578b341dea8d2c84b714923bdd11736e",
+                        "action": "create-participant",
+                        "content": base2
+                    };
+                    $.ajax({
+                        type: "POST",
+                        dataType: "json",
+                        url: "https://pruffme.com/api/",
+                        data: postData2,
+                        success: function (response) {
+                            console.log(response);
+                            let postData3 = {
+                                "webinarHash": response.participant.webinarHash,
+                                "sessionHash": response.session,
+                            };
+                            $.ajax({
+                                type: "POST",
+                                url: "http://127.0.0.1:8000/ru/lesson/data/" + {{lesson.id}},
+                                dataType: "json",
+                                data: postData3,
+                                headers: {
+                                    "X-CSRFTOKEN": "{{ csrf_token }}"
+                                },
+                                success: function (resp) {
+                                    console.log(resp)
+                                },
+                                error: function (e) {
+                                    console.log(e.message)
+                                }
+                            });
+                        },
+                        error: function (e) {
+                            console.log(e.message);
+                        }
+                    });
+                },
+                error: function (e) {
+                    console.log(e.message);
+                }
+            });
+        });
+    });
+    $(document).ready(function () {
+        $('#create-call').click(function (event) {
+            event.preventDefault();
+            let linkMeetin = `https://pruffme.com/webinar/?id={{lesson.hash_lesson}}#session={{lesson.session_hash}}`
+            // Open the webinar in a new tab
+            window.open(linkMeetin, '_blank');
+        })
+    });
+    $(document).ready(function () {
+        $("body").on("click", ".manage-task", function (e) {
+            e.preventDefault();
+            const taskId = $(this).data("task");
+            console.log(taskId)
+            console.log('{{ user.role }}')
+            const x = document.getElementById("myDIV-" + taskId);
+            if ('{{ user.role }}' === "Student" && x.style.display === "none") {
+                x.style.display = "block";
+            } else if ('{{ user.role }}' === "Student" && x.style.display === "block") {
+                x.style.display = "none";
+            } else if ('{{ user.role }}' === "Teacher" && x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "block";
+            }
+        });
+    });
+
+    function myFunction() {
+        let homework = document.getElementById("homework");
+        let classwork = document.getElementById("classwork");
+        let btn = document.getElementById("change-page-btn");
+        if (homework.style.display === "none" && classwork.style.display === "block") {
+            homework.style.display = "block";
+            classwork.style.display = "none";
+            btn.innerText = "Классная работа";
+        } else {
+            homework.style.display = "none";
+            classwork.style.display = "block";
+            btn.innerText = "Домашняя работа";
+        }
+    }
+
+    $(document).ready(function () {
+        $('.card-modal').click(function () {
+            const themeId = $(this).attr('data-themeId');
+            console.dir(themeId)
+            $('#AddThemeToLessonModal').modal('hide');
+            $('.modal-2').attr('id', 'exampleModalToggle2-' + themeId).modal('show');
+        });
+    });
+</script>

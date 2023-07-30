@@ -1,0 +1,32 @@
+{% load i18n %}
+<div class="page-navigation-container">
+    <ul class="nav nav-borders nav-tabs" style="--bs-nav-link-hover-color: #9292A6; border-bottom: none;">
+        {% if request.user.role == 'Teacher' or request.user.role == 'Student' %}
+            <li class="nav-item">
+                <a {% if page == 'schedule' %}class="nav-color-active nav-color nav-link active" aria-current="page"
+                   {% else %}class="nav-color nav-link" href="{% url 'index' %}"{% endif %}>{% trans "Расписание" %}</a>
+            </li>
+        {% endif %}
+        {% if request.user.role == 'Teacher' or request.user.role == 'Student' %}
+            <li class="nav-item">
+                <a {% if page == 'education' %}class="nav-color-active nav-color nav-link active" aria-current="page"
+                   {% else %}class="nav-color nav-link"
+                   href="{% url 'education' %}" {% endif %}>{% trans "Обучение" %}</a>
+            </li>
+        {% endif %}
+        {% if request.user.role == 'Teacher' or request.user.role == 'Supervisor' or request.user.role == 'Content-maker' %}
+            <li class="nav-item">
+                <a {% if page == 'themes' %}class="nav-color-active nav-color nav-link active" aria-current="page"
+                   {% else %}class="nav-color nav-link"
+                   href="{% url 'theme_list_catalog' %}"{% endif %}>{% trans "Материалы" %}</a>
+            </li>
+        {% endif %}
+        {% if request.user.role != 'Admin' %}
+            <li class="nav-item">
+                <a {% if page == 'settings' %}class="nav-color-active nav-color nav-link active" aria-current="page"
+                   {% else %}class="nav-color nav-link"
+                   href="{% url 'profile-detail' user.pk %}"{% endif %}>{% trans "Настройки" %}</a>
+            </li>
+        {% endif %}
+    </ul>
+</div>

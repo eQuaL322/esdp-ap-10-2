@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block menu %}
+    <input type="button" class="btn-gray" onclick="history.back();" value="&#8592 {% trans "Назад" %}"/>
+{% endblock %}
+<!-- Контент Администратора -->
+{% block admin-content %}
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10">
+            <div class="page-container">
+                <div class="card mb-3" style="border: none;">
+                    <div class="row g-0">
+                        <div class="col-md-3">
+                            {% if theme.cover %}
+                                <img src="{{ lesson.theme.cover.url }}"
+                                     class="card-img-top img-flu" alt="Cover">
+                            {% elif  not theme.cover and lesson.theme.title %}
+                                <img src="{% render_initials_avatar name=lesson.theme.title %}"
+                                     class="card-img-top img-flu" alt="Cover">
+                            {% else %}
+                                <img src="{% render_initials_avatar name='None' %}"
+                                     class="card-img-top img-flu" alt="Cover">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <div style="display: flex; height: 35px">
+                                    <h5 class="profile-header">
+                                        {% if lesson.theme.title %}
+                                            {{ lesson.theme.title }}
+                                        {% else %}
+                                            No theme
+                                        {% endif %}
+                                    </h5>
+                                    <div class="lesson-link"
+                                         style="margin-left: 10px; height: 28px; margin-top: -7px">
+                                        <a href="{% url 'lesson_update' lesson.pk %}">
+                                            <img style="margin-left: 6px;" src="{% static 'img/3122.png' %}" width="25"
+                                             height="25" alt="Update">
+                                        </a>
+                                    </div>
+                                    <form onsubmit="return confirm('Действительно удалить урок?');"
+                                          action="{% url 'lesson_delete' lesson.pk %}" id="form_del_les"
+                                          method="POST">
+                                        {% csrf_token %}
+                                        <label for="input">
+                                            <img style="margin-left: 12px; margin-bottom: 0.75rem; cursor: pointer; margin-top: -11px"
+                                                 src="{% static 'img/trash.jpg' %}"
+                                                 width="25" height="25" alt="Delete"/>
+                                        </label>
+                                        <input name="input" type="submit" id="input" value="Удалить"
+                                               style="visibility: hidden; cursor: pointer;">
+                                    </form>
+                                </div>
+                                <table class="table">
+                                    <tbody>
+                                    <tr>
+                                        <td>{% trans "Статус" %}:</td>
+                                        <td>
+                                            <div class="status {% if lesson.status == 'Planned' %}planned{% elif lesson.status == 'Ongoing' %}ongoing{% elif lesson.status == 'Completed' %}completed{% elif lesson.status == 'Canceled' %}canceled{% endif %}">
+                                                {% trans lesson.get_status_display %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Преподаватель" %}:</td>
+                                        <td class="td-inline">
+                                            <p class="p-inline">{{ lesson.teacher.first_name }}
+                                                {{ lesson.teacher.last_name|default_if_none:'' }}
+                                            </p>
+                                            <div class="id-icon" style="margin-top: 0">ID</div>
+                                            <p class="p-inline"> {{ lesson.teacher.pk }}</p>
+                                            <p class="p-inline"> |</p>
+                                            <p class="p-inline">{% bs_icon 'envelope-fill' size='1.4em' color='#a4a4a9' %}</p>
+                                            <p class="p-inline">{{ lesson.teacher.email }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Студент" %}:</td>
+                                        <td class="td-inline">
+                                            <p class="p-inline">{{ lesson.student.first_name }}
+                                                {{ lesson.student.last_name|default_if_none:'' }}
+                                            </p>
+                                            <div class="id-icon" style="margin-top: 0">ID</div>
+                                            <p class="p-inline"> {{ lesson.student.pk }}</p>
+                                            <p class="p-inline"> |</p>
+                                            <p class="p-inline">{% bs_icon 'envelope-fill' size='1.4em' color='#a4a4a9' %}</p>
+                                            <p class="p-inline">{{ lesson.student.email }}</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Длительность урока" %}:</td>
+                                        <td>{{ lesson.duration }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Классная работа" %}:</td>
+                                        <td>{% if lesson.theme.exercise %}{{ lesson.theme.exercise }}&ensp;
+                                            <a href="{% url 'task_list' lesson.theme.exercise.pk %}">
+                                                {% trans "Подробнее" %} >>></a> {% else %}
+                                        Не указано{% endif %}
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>{% trans "Домашняя работа" %}:</td>
+                                        <td>{% if lesson.theme.homework %}{{ lesson.theme.homework }}&ensp;
+                                        <a href="{% url 'task_list' lesson.theme.homework.pk %}">
+                                            {% trans "Подробнее" %} >>></a>{% else %}Не
+                                        указано{% endif %}
+                                        </td>
+                                    </tr>
+                                        <tr>
+                                        <td>{% trans "Дата и время урока" %}:</td>
+                                        <td>{{ lesson.lesson_date }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

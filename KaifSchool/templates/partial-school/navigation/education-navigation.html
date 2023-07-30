@@ -1,0 +1,28 @@
+{% load i18n %}
+<div class="profile-header">
+    {% if user.role == 'Student' or user.role == 'Teacher' %}
+    {% trans "Мои уроки" %}
+    {% elif user.role == "Admin" %}
+    {% trans "Обучение" %}
+    {% endif %}
+</div>
+{% if user.role == "Teacher" %}
+    <ul class="nav nav-borders" style="--bs-nav-link-hover-color: #9292A6;">
+        <li class="nav-item" {% if page == 'individual' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'individual' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color" href="#"{% endif %}>{% trans "Ученики" %}</a>
+        </li>
+        <li class="nav-item" {% if page == 'groups' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'groups' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color" href="#"{% endif %}>{% trans "Группы" %}</a>
+        </li>
+    </ul>
+{% elif user.role == "Student" %}
+    <ul class="nav nav-borders" style="--bs-nav-link-hover-color: #9292A6;">
+        <li class="nav-item" {% if page == 'individual' %} style="border-bottom: 3px solid #33ccff" {% endif %}>
+            <a {% if page == 'individual' %}class="nav-color-active nav-color active" aria-current="page"
+               {% else %}class="nav-color" href="#"{% endif %}>{% trans "Мои уроки" %}</a>
+        </li>
+    </ul>
+{% endif %}
+<hr style="margin-top: 0; color: #b2b2c3">

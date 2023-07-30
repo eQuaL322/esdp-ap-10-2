@@ -1,0 +1,91 @@
+version: "2.2"
+
+services:
+  db:
+    image: postgres:14.0
+    volumes:
+      - postgresql_data:/var/lib/postgresql/data
+    environment:
+      - TZ=UTC
+      - DATABASE_NAME=kaifshool
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=123456
+    restart: always
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
+
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - static:/static
+      - media:/media
+    command: bash -c 'python manage.py migrate --noinput && python manage.py collectstatic --noinput && python manage.py runserver 0.0.0.0:8000'
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - redis
+    environment:
+      - TZ=UTC
+      - DB_HOST=db
+      - DATABASE_NAME=kaifschool
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=123456
+    restart: always
+
+  worker:
+    restart: always
+    build: .
+    volumes:
+      - ./:/app
+    environment:
+      - TZ=UTC
+      - DB_HOST=db
+      - DATABASE_NAME=kaifschool
+      - DATABASE_USER=postgres
+      - DATABASE_PASSWORD=123456
+    depends_on:
+      - redis
+      - webapp
+      - db
+
+    command: 'celery -A core.celery_ worker -l info'
+
+  beat:
+    restart: always
+    build: .
+    volumes:
+      - ./:/app
+    depends_on:
+      - redis
+      - webapp
+      - worker
+      - db
+    command: 'celery -A core.celery_ beat -l info'
+
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - static:/static
+    depends_on:
+      - webapp
+    restart: always
+
+volumes:
+  postgresql_data:
+    external: true
+  media:
+    external: true
+  static:
+    external: true

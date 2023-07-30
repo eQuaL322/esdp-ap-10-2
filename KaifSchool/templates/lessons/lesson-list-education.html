@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% load thumbnail %}
+{% load initials_avatar %}
+{% load bootstrap_icons %}
+{% block title %}Kaif School{% endblock %}
+{% block content %}{% block admin-content %}
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10">
+            {% include 'partial/navigation/main_users_navigation.html' with page='education' %}
+            <div {% if user.role != "Admin" %}class="page-container" {% else %}class="page-container-admin"{% endif %}>
+                {% include 'partial-school/navigation/education-navigation.html'  with page='individual' %}<br>
+                <div class="row">
+                    <div class="col-md-6 my-4 ps-0">
+                        {% include 'partial/users-search.html' %}
+                    </div>
+                    {% include 'partial-school/lessons-filtration-by-status.html' %}
+                </div>
+                <table class="col-md-12 px-2">
+                    <tbody>
+                    {% for lesson in lessons %}
+                        {% if user.role == 'Teacher' %}
+                            <tr class="user" data-user="{{ lesson.student.first_name }}"
+                                data-id="{{ lesson.student.pk }}" data-status="{{ lesson.status }}">
+                                <td class="col-md-2 lesson-date">
+                                    <div>{{ lesson.lesson_date }}</div>
+                                </td>
+                                <td class="col-md-2 pt-3">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            {% if lesson.student.avatar %}
+                                                {% thumbnail lesson.student.avatar "45x45" crop="center" as im %}
+                                                    <img src="{{ im.url }}" width="{{ im.width }}"
+                                                         height="{{ im.height }}"
+                                                         class="icon-round" alt="Avatar">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                <img src="{% render_initials_avatar name=lesson.student.first_name %}"
+                                                     class="icon-round" alt="Avatar">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-10" style="padding-left: 2rem;">
+                                            <div>{{ lesson.student.first_name }}</div>
+                                            <div class="td-inline">
+                                                <div class="id-icon">ID</div>
+                                                <p class="p-inline"> {{ lesson.student.pk }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-md-4 ps-3">
+                                    <div class="status {% if lesson.status == 'Planned' %}planned{% elif lesson.status == 'Ongoing' %}ongoing{% elif lesson.status == 'Completed' %}completed{% elif lesson.status == 'Canceled' %}canceled{% endif %}">
+                                        {% trans lesson.get_status_display %}
+                                    </div>
+                                </td>
+                                <td class="col-md-3 pt-3 ps-5" style="text-align: right">
+                                    <a href="{% url 'lesson' lesson.pk %}"
+                                       class="btn-gray btn-blue">{% trans "В класс" %} {% bs_icon 'arrow-right-square' size='1.2em' color='white' %}</a>
+                                </td>
+                            </tr>
+                        {% elif user.role == 'Student' %}
+                            <tr class="user" data-user="{{ lesson.teacher.first_name }}"
+                                data-id="{{ lesson.teacher.pk }}" data-status="{{ lesson.status }}">
+                                <td class="col-md-2 lesson-date">
+                                    <div>{{ lesson.lesson_date }}</div>
+                                </td>
+                                <td class="col-md-2 pt-3">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            {% if lesson.teacher.avatar %}
+                                                {% thumbnail lesson.teacher.avatar "45x45" crop="center" as im %}
+                                                    <img src="{{ im.url }}" width="{{ im.width }}"
+                                                         height="{{ im.height }}"
+                                                         class="icon-round" alt="Avatar">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                <img src="{% render_initials_avatar name=lesson.teacher.first_name %}"
+                                                     class="icon-round" alt="Avatar">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-10" style="padding-left: 2rem;">
+                                            <div>{{ lesson.teacher.first_name }}</div>
+                                            <div class="td-inline">
+                                                <div class="id-icon">ID</div>
+                                                <p class="p-inline"> {{ lesson.teacher.pk }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-md-5 ps-3">
+                                    <div class="status {% if lesson.status == 'Planned' %}planned{% elif lesson.status == 'Ongoing' %}ongoing{% elif lesson.status == 'Completed' %}completed{% elif lesson.status == 'Canceled' %}canceled{% endif %}">
+                                        {% trans lesson.get_status_display %}
+                                    </div>
+                                </td>
+                                <td class="col-md-3 pt-3 ps-5" style="text-align: right">
+                                    {% if lesson.status == 'Ongoing' or  lesson.status == 'Completed' %}
+                                        <a href="{% url 'lesson' lesson.pk %}"
+                                           class="main-style-button">{% trans "В класс" %} {% bs_icon 'arrow-right-square' size='1.2em' color='white' %}</a>
+                                    {% else %}
+                                        <button class="main-style-button main-style-button-muted">{% trans "В класс" %} {% bs_icon 'arrow-right-square' size='1.2em' color='white' %}</button>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% elif user.role == 'Admin' %}
+                            <tr class="user" data-teacher="{{ lesson.teacher.first_name }}"
+                                data-student="{{ lesson.student.first_name }}" data-teacher-id="{{ lesson.teacher.pk }}"
+                                data-student-id="{{ lesson.student.pk }}" data-status="{{ lesson.status }}">
+                                <td class="col-md-2 lesson-date">
+                                    <div>{{ lesson.lesson_date }}</div>
+                                </td>
+                                <td class="col-md-2 pt-3">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            {% if lesson.teacher.avatar %}
+                                                {% thumbnail lesson.teacher.avatar "45x45" crop="center" as im %}
+                                                    <img src="{{ im.url }}" width="{{ im.width }}"
+                                                         height="{{ im.height }}"
+                                                         class="icon-round" alt="Avatar">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                <img src="{% render_initials_avatar name=lesson.teacher.first_name %}"
+                                                     class="icon-round" alt="Avatar">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-10" style="padding-left: 2rem;">
+                                            <div>{{ lesson.teacher.first_name }}</div>
+                                            <div class="td-inline">
+                                                <div class="id-icon">ID</div>
+                                                <p class="p-inline"> {{ lesson.teacher.pk }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-md-2 pt-3">
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            {% if lesson.student.avatar %}
+                                                {% thumbnail lesson.student.avatar "45x45" crop="center" as im %}
+                                                    <img src="{{ im.url }}" width="{{ im.width }}"
+                                                         height="{{ im.height }}"
+                                                         class="icon-round" alt="Avatar">
+                                                {% endthumbnail %}
+                                            {% else %}
+                                                <img src="{% render_initials_avatar name=lesson.student.first_name %}"
+                                                     class="icon-round" alt="Avatar">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-md-10" style="padding-left: 2rem;">
+                                            <div>{{ lesson.student.first_name }}</div>
+                                            <div class="td-inline">
+                                                <div class="id-icon">ID</div>
+                                                <p class="p-inline"> {{ lesson.student.pk }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="col-md-3 ps-3">
+                                    <div class="status {% if lesson.status == 'Planned' %}planned{% elif lesson.status == 'Ongoing' %}ongoing{% elif lesson.status == 'Completed' %}completed{% elif lesson.status == 'Canceled' %}canceled{% endif %}">
+                                        {% trans lesson.get_status_display %}
+                                    </div>
+                                </td>
+                                <td class="dropdown-center ps-3">
+                                    <div class="dropdown"
+                                         role="button" data-bs-toggle="dropdown"
+                                         aria-expanded="false"
+                                         id="three-dots">{% bs_icon 'three-dots' size='0.7em' extra_classes="fs-1 icon-l-nav" %}
+                                    </div>
+                                    <ul class="dropdown-menu">
+                                        <li class="dropdown-item" style="cursor: pointer">
+                                            <a class="dropdown-item px-0" href="{% url 'lesson_update' lesson.pk %}">
+                                                {% bs_icon 'pencil-fill' size='0.6em' extra_classes="fs-1 icon-l-nav" %}{% trans 'Редактировать' %}
+                                            </a>
+                                        </li>
+                                        <li class="dropdown-item" style="cursor: pointer" data-bs-toggle="modal"
+                                            data-bs-target="#DeleteLessonModal{{ lesson.pk }}" id="exercise-delete">
+                                            {% bs_icon 'trash3-fill' size='0.6em' extra_classes="fs-1 icon-l-nav" %}{% trans 'Удалить' %}
+                                        </li>
+                                    </ul>
+                                </td>
+                                <td class="col-md-3 pt-3 ps-5" style="text-align: right">
+                                    <a href="{% url 'lesson' lesson.pk %}"
+                                       class="btn-gray btn-blue">{% trans "В класс" %} {% bs_icon 'arrow-right-square' size='1.2em' color='white' %}</a>
+                                </td>
+                            </tr>
+                        {% endif %}
+                        {% include 'partial-school/modal-windows/delete-lesson-modal.html' %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}{% endblock %}
+{% block script %}
+    {% if user.role == "Teacher" or user.role == "Student" %}
+        <script src="{% static 'js/users-search.js' %}" defer></script>
+    {% elif user.role == 'Admin' %}
+        <script src="{% static 'js/users-search-admin.js' %}" defer></script>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% block content %}{% block admin-content %}
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10">
+            {% include 'partial/navigation/main_users_navigation.html' with page='themes' %}
+            <div {% if user.role != "Admin" %}class="page-container" {% else %}class="page-container-admin"{% endif %}>
+                {% include 'partial-school/navigation/theme-navigation.html'  with page='theme_list_catalog' %}<br>
+                {% include 'partial-school/themes-search.html' %}
+                <div class="card-list" id="card-list">
+                    <div class="row">
+                        {% for theme in themes %}
+                            <div class="card theme-cards m-sm-3 m-md-1 m-lg-4" style="padding: 0;">
+                                <a href="{% url 'theme_detail' theme.pk %}" class="nav-link test-ex" style="padding: 0">
+                                    {% if theme.cover %}
+                                        <img src="{{ theme.cover.url }}"
+                                             class="card-img-top card-fluid"
+                                             alt="Cover">
+                                    {% else %}
+                                        <img src="{% render_initials_avatar name=theme.title %}"
+                                             class="card-img-top card-fluid" alt="Cover">
+                                    {% endif %}
+                                    <div class="card-body">
+                                        <h5 class="card-theme-title">
+                                            {{ theme.title }}
+                                        </h5>
+                                    </div>
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/themes-search.js' %}"></script>
+{% endblock %}

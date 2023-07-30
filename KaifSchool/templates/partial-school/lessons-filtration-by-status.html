@@ -1,0 +1,32 @@
+{% load thumbnail %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% load i18n %}
+<div class="col-md-6 my-4">
+    <label for="lesson-status"></label><select name="status" id="lesson-status" class="form-select">
+        <option selected value="None">{% trans "Фильтрация по статусу" %}</option>
+        {% for value, displayable in statuses %}
+            <option value="{{ value }}">{{ displayable }}</option>
+        {% endfor %}
+    </select>
+</div>
+{% block script %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $('.form-select').on('change', function () {
+                const searchLessonStatus = $(this).val();
+                $('.user').each(function (idx, item) {
+                    const tr = $(item).attr("data-status");
+                    if (tr.indexOf(searchLessonStatus) >= 0 || searchLessonStatus.length < 1) {
+                        $(item).children().show();
+                    } else {
+                        $(item).children().hide();
+                        if (searchLessonStatus === 'None') {
+                            $(item).children().show();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}

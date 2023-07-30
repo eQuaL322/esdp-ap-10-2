@@ -1,0 +1,28 @@
+{% load static %}
+{% load i18n %}
+    <div class="modal fade" id="ChatModal" tabindex="-1" aria-labelledby="ChatModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" style="width: 900px;">
+        <div class="modal-content">
+            <form id="messageForm" method="post" action="{% url 'send_message' %}">
+                {% csrf_token %}
+                <div class="logout-modal-header modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                            id="closeModalButton">
+                    </button>
+                </div>
+                <div class="auth" style="min-height: fit-content">
+                    <div class="modal-body auth-block" style="text-align: center">
+                        <h2>{% trans "Написать в службу поддержки" %}</h2>
+                        <input type="hidden" name="recipient_id" value="{{ recipient_id }}">
+                        <textarea name="message" class="form-control"  required></textarea>
+                    </div>
+                    <div class="modal-footer" style="border-top: none">
+                        <button type="button" class="logout-modal-btn btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">{% trans "Отменить" %}
+                        </button>
+                        <button type="submit" class="logout-modal-btn btn logout-btn" style="background-color: #33ccff;">{% trans "Отправить" %}</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>

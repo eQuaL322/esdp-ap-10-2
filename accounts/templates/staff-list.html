@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load thumbnail %}
+{% load initials_avatar %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% load bootstrap_icons %}
+{% block title %}Kaif School{% endblock %}
+{% block admin-content %}
+    {% if user.role == 'Admin' or user.is_superuser is True %}
+        <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+            <div class="px-0 container-fluid col-md-10">
+                <div class="page-container">
+                    {% include 'partial/navigation/menu-users-navigation.html' with page='staff' %}
+                    <div class="row">
+                        <div class="col-md-6 my-4 ps-0">
+                            {% include 'partial/users-search.html' %}
+                        </div>
+                        {% include 'partial/staff-filtration-by-role.html' %}
+                    </div>
+                    <table class="col-md-12">
+                        <tbody>
+                        {% for st in staff %}
+                            <tr class="user" data-user="{{ st.first_name }}" data-role="{{ st.role }}" data-id="{{ st.pk }}">
+                                <td class="pb-2 pe-2 justify-content-start">
+                                    {% if st.avatar %}
+                                        {% thumbnail st.avatar "45x45" crop="center" as im %}
+                                            <img src="{{ im.url }}" width="{{ im.width }}"
+                                                 height="{{ im.height }}"
+                                                 class="icon-round" alt="account">
+                                        {% endthumbnail %}
+                                    {% else %}
+                                        <img src="{% render_initials_avatar name=st.first_name %}"
+                                             class="icon-round" alt="Avatar">
+                                    {% endif %}
+                                </td>
+                                <td class="pt-3 col-md-9 justify-content-start">
+                                    <div>{{ st.first_name }}</div>
+                                    <div class="td-inline">
+                                        <div class="id-icon">ID</div>
+                                        <p class="p-inline"> {{ st.pk }}</p>
+                                        <p class="p-inline"> |</p>
+                                        <p class="p-inline">{% bs_icon 'envelope-fill' size='1em' color='#a4a4a9' %}</p>
+                                        <p class="p-inline">{{ st.email }}</p>
+                                    </div>
+                                </td>
+                                <td class="pt-3 col-md-3 justify-content-end">
+                                    <a href="{% url 'profile-update' st.pk %}"
+                                       class="btn btn-secondary">{% trans "Профайл сотрудника" %}</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block script %}
+    <script src="{% static 'js/users-search.js' %}" defer></script>
+{% endblock %}

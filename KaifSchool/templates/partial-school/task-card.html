@@ -1,0 +1,57 @@
+{% load static %}
+{% load i18n %}
+{% load bootstrap_icons %}
+<div class="task-card shadow-sm my-5 task-text">
+    <h5 class="task-card-title">{% trans "Задание " %}{{ forloop.counter }}.</h5>
+    <h3 class="task-card-question profile-header">{{ task.question }}</h3>
+    {% if task.task_type.title == 'video' %}
+        <div>
+            <div class="card_video" id="translation_screen">
+                <iframe width="200%" height="640vh" src="{{ task.url }}"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;"
+                        ></iframe>
+            </div>
+        </div>
+    {% elif task.task_type.title == 'image' %}
+        <div class="image-task d-flex justify-content-center m-3">
+            <img src="{{ task.file.url }}" alt="Изображение">
+        </div>
+        {% include 'partial-school/task-form.html' %}
+    {% elif task.task_type.title == 'test' %}
+        {% include 'partial-school/task-form.html' %}
+    {% elif task.task_type.title == 'words-in-text' %}
+        <div id="new-div" class="words-in-text" data-taskId="{{ task.pk }}"></div>
+        <div id="original-text" class="original-text">{{ task.task_text }}</div>
+    {% endif %}
+    <br>
+    {% if task.id and exercise.id %}
+        <div class="task-card-actions">
+            <div class="dropdown-center">
+                <div class="dropdown task-three-dots"
+                     role="button" data-bs-toggle="dropdown"
+                     aria-expanded="false">{% bs_icon 'three-dots' size='0.7em' extra_classes="fs-1 icon-l-nav" %}
+                </div>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" style="cursor: pointer"
+                           href="{% url 'task_update' exercise.id task.id %}">
+                            {% bs_icon 'pencil-fill' size='0.6em' extra_classes="fs-1 icon-l-nav" %}{% trans 'Редактировать' %}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" style="cursor: pointer"
+                           href="{% url 'task_delete' exercise.id task.id %}">
+                            {% bs_icon 'trash3-fill' size='0.6em' extra_classes="fs-1 icon-l-nav" %}{% trans 'Удалить' %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    {% endif %}
+</div>
+{% if task.task_type.title == 'words-in-text' %}
+    {% block script %}
+        <script src="{% static 'js/worlds-in-text.js' %}" defer></script>
+    {% endblock %}
+{% endif %}

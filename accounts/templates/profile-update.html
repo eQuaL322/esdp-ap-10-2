@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block title %}Kaif School{% endblock %}
+{% block content %}{% block admin-content %}
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10">
+            {% if user.role != "Admin" %}
+                {% include 'partial/navigation/main_users_navigation.html' with page='settings' %}
+            {% endif %}
+            <div class="page-container">
+                {% include 'partial/navigation/menu-settings-navigation.html' with page='profile-update' %}
+                {% include 'partial/profile-update-form.html' %}
+                {% if user.role == 'Admin' or user.is_superuser is True %}
+                    {% include 'partial/password-change-form.html' %}
+                    <div class="row g-3">
+                        <div class="col-12 col-md-6"></div>
+                        <div class="col-12 col-md-6">
+                            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#DeleteProfileModal">
+                                {% trans "Удалить пользователя" %}
+                            </button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% include 'partial/modal-windows/delete-profile-modal.html' %}
+{% endblock %}{% endblock %}
+{% block script %}
+    <script>
+        window.addEventListener('load', function () {
+            document.querySelector('input[type="file"]').addEventListener('change', function () {
+                if (this.files && this.files[0]) {
+                    const img = document.getElementById('profile-avatar');
+                    img.onload = () => {
+                        URL.revokeObjectURL(img.src);
+                    }
+                    img.src = URL.createObjectURL(this.files[0]);
+                }
+            });
+        });
+    </script>
+{% endblock %}

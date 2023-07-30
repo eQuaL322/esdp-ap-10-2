@@ -1,0 +1,674 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-07-06 07:38+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: KaifSchool/models.py:7
+msgid "Запланирован"
+msgstr "Запланирован"
+
+#: KaifSchool/models.py:8
+msgid "Идет"
+msgstr "Идёт"
+
+#: KaifSchool/models.py:9
+msgid "Прошёл"
+msgstr "Прошёл"
+
+#: KaifSchool/models.py:10
+msgid "Отменён"
+msgstr "Отменён"
+
+#: KaifSchool/models.py:43
+msgid "Пробный урок"
+msgstr "Пробный урок"
+
+#: KaifSchool/models.py:47
+msgid "Статус"
+msgstr "Статус"
+
+#: KaifSchool/templates/base.html:51
+#: KaifSchool/templates/lessons/lesson-update.html:132
+msgid "MainPageLink"
+msgstr "Главная"
+
+#: KaifSchool/templates/base.html:75
+#: KaifSchool/templates/lessons/lesson-update.html:156
+msgid "ProfileSettings"
+msgstr "Настройки профиля"
+
+#: KaifSchool/templates/base.html:89
+#: KaifSchool/templates/lessons/lesson-update.html:170
+msgid "LogOutButton"
+msgstr "Выйти"
+
+#: KaifSchool/templates/base.html:100
+msgid "Сообщить о проблеме"
+msgstr "Сообщить о проблеме"
+
+#: KaifSchool/templates/index.html:14
+msgid "Расписание уроков"
+msgstr "Расписание уроков"
+
+#: KaifSchool/templates/index.html:20 accounts/models.py:10
+msgid "Учитель"
+msgstr "Учитель"
+
+#: KaifSchool/templates/index.html:26 accounts/models.py:11
+msgid "Ученик"
+msgstr "Ученик"
+
+#: KaifSchool/templates/index.html:31
+msgid "Тема"
+msgstr "Тема"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:14
+#: KaifSchool/templates/lessons/lesson-update.html:103
+#: KaifSchool/templates/tasks/task-create-or-update.html:8
+#: KaifSchool/templates/tasks/task-list.html:8
+#: KaifSchool/templates/themes/theme-detail.html:8
+msgid "Назад"
+msgstr "Назад"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:22
+msgid "Домашняя работа"
+msgstr "Домашняя работа"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:26
+msgid "+ добавить материал"
+msgstr "+ добавить материал"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:38
+#: KaifSchool/templates/tasks/task-list.html:25
+msgid "Упражнение"
+msgstr "Упражнение"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:47
+#: KaifSchool/templates/lessons/lesson-detail.html:66
+msgid "Здесь пока нет заданий"
+msgstr "Здесь пока нет заданий"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:58
+msgid "Упражнение "
+msgstr "Упражнение "
+
+#: KaifSchool/templates/lessons/lesson-detail.html:82
+msgid "Начать звонок ученик"
+msgstr "Начать звонок ученик"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:84
+msgid "Начать звонок"
+msgstr "Начать звонок"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:121
+msgid "Действительно удалить урок?"
+msgstr "Действительно удалить урок?"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:130
+#: KaifSchool/templates/lessons/lesson-list-education.html:178
+#: KaifSchool/templates/partial-school/task-card.html:46
+#: KaifSchool/templates/tasks/task-create-or-update.html:94
+#: KaifSchool/templates/themes/theme-detail.html:51
+#: KaifSchool/templates/themes/theme-detail.html:89
+#: KaifSchool/templates/themes/theme-detail.html:128
+msgid "Удалить"
+msgstr "Удалить"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:136
+msgid "Преподаватель:"
+msgstr "Преподаватель:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:138
+msgid "Студент:"
+msgstr "Студент:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:140
+msgid "Длительность урока:"
+msgstr "Длительность урока:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:142
+msgid "Классная работа:"
+msgstr "Классная работа:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:145
+#: KaifSchool/templates/lessons/lesson-detail.html:152
+msgid "Подробнее >>>"
+msgstr "Подробнее >>>"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:147
+#: KaifSchool/templates/lessons/lesson-detail.html:152
+msgid "Не указано"
+msgstr "Не указано"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:149
+msgid "Домашняя работа:"
+msgstr "Домашняя работа:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:154
+msgid "Дата и время урока:"
+msgstr "Дата и время урока:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:156
+msgid "Тема урока:"
+msgstr "Тема урока:"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:173
+msgid "Обновить урок"
+msgstr "Обновить урок"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:182
+#: KaifSchool/templates/partial-school/modal-windows/add-classwork-exercise-modal.html:20
+#: KaifSchool/templates/partial-school/modal-windows/add-homework-exercise-modal.html:20
+#: KaifSchool/templates/partial-school/modal-windows/delete-exercise-modal.html:20
+#: KaifSchool/templates/partial-school/modal-windows/delete-homework-modal.html:18
+#: KaifSchool/templates/partial-school/modal-windows/delete-lesson-modal.html:20
+#: KaifSchool/templates/partial-school/modal-windows/delete-theme-modal.html:20
+#: KaifSchool/templates/partial-school/modal-windows/update-exercise-modal.html:21
+#: KaifSchool/templates/partial-school/modal-windows/update-homework-modal.html:21
+#: KaifSchool/templates/themes/theme-detail.html:169
+#: KaifSchool/templates/themes/theme-personal-list.html:74
+#: accounts/templates/partial/modal-windows/delete-profile-modal.html:21
+#: accounts/templates/partial/modal-windows/logout-modal.html:20
+msgid "Нет"
+msgstr "Нет"
+
+#: KaifSchool/templates/lessons/lesson-detail.html:185
+#: KaifSchool/templates/themes/theme-detail.html:172
+msgid "Обновить"
+msgstr "Обновить"
+
+#: KaifSchool/templates/lessons/lesson-list-education.html:60
+#: KaifSchool/templates/lessons/lesson-list-education.html:100
+#: KaifSchool/templates/lessons/lesson-list-education.html:102
+#: KaifSchool/templates/lessons/lesson-list-education.html:184
+msgid "В класс"
+msgstr "В класс"
+
+#: KaifSchool/templates/lessons/lesson-list-education.html:173
+#: KaifSchool/templates/partial-school/modal-windows/update-exercise-modal.html:10
+#: KaifSchool/templates/partial-school/modal-windows/update-homework-modal.html:10
+#: KaifSchool/templates/partial-school/task-card.html:40
+#: KaifSchool/templates/themes/theme-detail.html:46
+#: KaifSchool/templates/themes/theme-detail.html:85
+#: KaifSchool/templates/themes/theme-detail.html:124
+#: accounts/templates/partial/profile-update-form.html:28
+msgid "Редактировать"
+msgstr "Редактировать"
+
+#: KaifSchool/templates/lessons/lesson-update.html:193
+msgid "Добавить урок"
+msgstr "Добавить урок"
+
+#: KaifSchool/templates/lessons/saved_lessons.html:11
+msgid "Выбранные уроки:"
+msgstr "Выбранные уроки:"
+
+#: KaifSchool/templates/meeting.html:15
+msgid " Назад"
+msgstr "Назад"
+
+#: KaifSchool/templates/partial-school/lessons-filtration-by-status.html:7
+msgid "Фильтрация по статусу"
+msgstr "Фильтрация по статусу"
+
+#: KaifSchool/templates/partial-school/modal-windows/add-classwork-exercise-modal.html:11
+#: KaifSchool/templates/themes/theme-detail.html:101
+msgid "Добавить классную работу"
+msgstr "Добавить классную работу"
+
+#: KaifSchool/templates/partial-school/modal-windows/add-classwork-exercise-modal.html:23
+#: KaifSchool/templates/partial-school/modal-windows/add-homework-exercise-modal.html:23
+#: KaifSchool/templates/themes/theme-personal-list.html:51
+#: KaifSchool/templates/themes/theme-personal-list.html:77
+#: accounts/templates/profile-detail.html:85
+msgid "Добавить"
+msgstr "Добавить"
+
+#: KaifSchool/templates/partial-school/modal-windows/add-homework-exercise-modal.html:11
+#: KaifSchool/templates/themes/theme-detail.html:139
+msgid "Добавить домашнюю работу"
+msgstr "Добавить домашнюю работу"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-exercise-modal.html:13
+#: KaifSchool/templates/partial-school/modal-windows/delete-homework-modal.html:13
+msgid "Удалить задание?"
+msgstr "Удалить задание?"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-exercise-modal.html:14
+msgid "Вы уверены, что хотите удалить это задание?"
+msgstr "Вы уверены, что хотите удалить это задание?"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-exercise-modal.html:23
+#: KaifSchool/templates/partial-school/modal-windows/delete-homework-modal.html:24
+#: KaifSchool/templates/partial-school/modal-windows/delete-lesson-modal.html:23
+#: KaifSchool/templates/partial-school/modal-windows/delete-theme-modal.html:23
+#: accounts/templates/partial/modal-windows/delete-profile-modal.html:24
+#: accounts/templates/partial/modal-windows/logout-modal.html:23
+msgid "Да"
+msgstr "Да"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-homework-modal.html:14
+msgid "Вы уверены, что хотите удалить домашнее задание?"
+msgstr "Вы уверены, что хотите удалить домашнее задание?"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-lesson-modal.html:13
+msgid "Удалить класс?"
+msgstr "Удалить класс?"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-lesson-modal.html:14
+msgid "Вы уверены, что хотите удалить этот класс?"
+msgstr "Вы уверены, что хотите удалить этот класс?"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-theme-modal.html:13
+msgid "Удалить материал?"
+msgstr "Удалить материал?"
+
+#: KaifSchool/templates/partial-school/modal-windows/delete-theme-modal.html:14
+msgid "Вы уверены, что хотите удалить этот материал?"
+msgstr "Вы уверены, что хотите удалить этот материал?"
+
+#: KaifSchool/templates/partial-school/modal-windows/lesson-to-theme-modal.html:67
+msgid "войти в класс"
+msgstr "Войти в класс"
+
+#: KaifSchool/templates/partial-school/modal-windows/update-exercise-modal.html:24
+#: KaifSchool/templates/partial-school/modal-windows/update-homework-modal.html:24
+#: KaifSchool/templates/tasks/task-create-or-update.html:136
+msgid "Сохранить"
+msgstr "Сохранить"
+
+#: KaifSchool/templates/partial-school/navigation/current-theme-in-navbar.html:15
+#: KaifSchool/templates/partial-school/navigation/current-theme-in-navbar.html:38
+msgid "Текущий урок"
+msgstr "Текущий урок"
+
+#: KaifSchool/templates/partial-school/navigation/education-navigation.html:4
+#: KaifSchool/templates/partial-school/navigation/education-navigation.html:24
+#: KaifSchool/templates/partial-school/navigation/lesson-navigation.html:6
+msgid "Мои уроки"
+msgstr "Мои уроки"
+
+#: KaifSchool/templates/partial-school/navigation/education-navigation.html:6
+#: accounts/templates/partial/navigation/main_users_navigation.html:14
+msgid "Обучение"
+msgstr "Обучение"
+
+#: KaifSchool/templates/partial-school/navigation/education-navigation.html:13
+#: accounts/templates/partial/navigation/menu-users-navigation.html:10
+#: accounts/templates/partial/navigation/menu-users-navigation.html:16
+msgid "Ученики"
+msgstr "Ученики"
+
+#: KaifSchool/templates/partial-school/navigation/education-navigation.html:17
+msgid "Группы"
+msgstr "Группы"
+
+#: KaifSchool/templates/partial-school/navigation/theme-navigation.html:3
+#: accounts/templates/partial/navigation/main_users_navigation.html:21
+msgid "Материалы"
+msgstr "Материалы"
+
+#: KaifSchool/templates/partial-school/navigation/theme-navigation.html:8
+msgid "Каталог"
+msgstr "Каталог"
+
+#: KaifSchool/templates/partial-school/navigation/theme-navigation.html:12
+msgid "Личное"
+msgstr "Личное"
+
+#: KaifSchool/templates/partial-school/task-card.html:5
+msgid "Задание "
+msgstr "Задание "
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:25
+msgid "Cоздать новое упражение"
+msgstr "Cоздать новое упражение"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:60
+msgid "Варианты ответов"
+msgstr "Варианты ответов"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:64
+msgid "Варианты"
+msgstr "Варианты"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:65
+msgid "Правильный"
+msgstr "Правильный"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:66
+msgid "Удалить?"
+msgstr "Удалить?"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:106
+msgid "Вы уверены, что хотите удалить это?"
+msgstr "Вы уверены, что хотите удалить это?"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:114
+msgid "Да, удалить"
+msgstr "Да, удалить"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:116
+msgid "Закрыть"
+msgstr "Закрыть"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:129
+msgid "Добавить вариант ответа"
+msgstr "Добавить вариант ответа"
+
+#: KaifSchool/templates/tasks/task-create-or-update.html:135
+msgid "Отмена"
+msgstr "Отмена"
+
+#: KaifSchool/templates/tasks/task-list.html:16
+msgid "Добавить задание"
+msgstr "Добавить задание"
+
+#: KaifSchool/templates/themes/theme-catalog-list.html:18
+#: KaifSchool/templates/themes/theme-personal-list.html:21
+msgid "Введите название материала..."
+msgstr "Введите название материала..."
+
+#: KaifSchool/templates/themes/theme-detail.html:13
+msgid "+ в урок"
+msgstr "+ в урок"
+
+#: KaifSchool/templates/themes/theme-detail.html:57
+msgid "Автор: "
+msgstr "Автор: "
+
+#: KaifSchool/templates/themes/theme-detail.html:160
+msgid "Обновить материал"
+msgstr "Обновить материал"
+
+#: KaifSchool/templates/themes/theme-personal-list.html:65
+msgid "Добавить материал"
+msgstr "Добавить материал"
+
+#: accounts/models.py:9
+msgid "Админ"
+msgstr "Админ"
+
+#: accounts/models.py:12
+msgid "Куратор"
+msgstr "Куратор"
+
+#: accounts/models.py:13
+msgid "Руководитель"
+msgstr "Руководитель"
+
+#: accounts/models.py:14
+msgid "Куратор-марафонов"
+msgstr "Куратор-марафонов"
+
+#: accounts/models.py:15
+msgid "Контент-мейкер"
+msgstr "Контент-мейкер"
+
+#: accounts/models.py:16
+msgid "Техподдержка"
+msgstr "Техподдержка"
+
+#: accounts/service.py:8
+msgid "Регистрация на сайте kaifschool.ru"
+msgstr "Регистрация на сайте kaifschool.ru"
+
+#: accounts/service.py:9
+msgid "Вы зарегистрированы на сайте kaifschool.ru! Ваш пароль для входа:"
+msgstr "Вы зарегистрированы на сайте kaifschool.ru! Ваш пароль для входа:"
+
+#: accounts/service.py:18
+msgid "Вход на kaifschool.ru"
+msgstr "Вход на kaifschool.ru"
+
+#: accounts/service.py:19
+msgid "Ваш новый пароль для входа: "
+msgstr "Ваш новый пароль для входа:"
+
+#: accounts/tasks.py:31
+msgid "Напоминание о предстоящем уроке"
+msgstr "Напоминание о предстоящем уроке"
+
+#: accounts/templates/partial/login-part.html:13
+msgid "LogInTitle"
+msgstr "Войти"
+
+#: accounts/templates/partial/login-part.html:38
+msgid "Забыли свой пароль?"
+msgstr "Забыли свой пароль?"
+
+#: accounts/templates/partial/login-part.html:41
+msgid "LogIn"
+msgstr "Войти"
+
+#: accounts/templates/partial/modal-windows/delete-profile-modal.html:16
+msgid "Удалить пользователя?"
+msgstr "Удалить пользователя?"
+
+#: accounts/templates/partial/modal-windows/delete-profile-modal.html:17
+msgid "Вы уверены, что хотите удалить этого пользователя?"
+msgstr "ы уверены, что хотите удалить этого пользователя?"
+
+#: accounts/templates/partial/modal-windows/logout-modal.html:14
+msgid "Выйти из аккаунта"
+msgstr "Выйти из аккаунта"
+
+#: accounts/templates/partial/modal-windows/logout-modal.html:15
+msgid ""
+"Вы уверены, что хотите выйти? Мы будем скучать... Возвращайтесь\n"
+"                            скорее!"
+msgstr ""
+"Вы уверены, что хотите выйти? Мы будем скучать... Возвращайтесь скорее!"
+
+#: accounts/templates/partial/navigation/main_users_navigation.html:7
+msgid "Расписание"
+msgstr "Расписание"
+
+#: accounts/templates/partial/navigation/main_users_navigation.html:28
+#: accounts/templates/partial/navigation/menu-settings-navigation.html:3
+#: accounts/templates/partial/navigation/menu-settings-navigation.html:16
+msgid "Настройки"
+msgstr "Настройки"
+
+#: accounts/templates/partial/navigation/menu-settings-navigation.html:10
+msgid "Профиль"
+msgstr "Профиль"
+
+#: accounts/templates/partial/navigation/menu-users-navigation.html:3
+msgid "Пользователи"
+msgstr "Пользователи"
+
+#: accounts/templates/partial/navigation/menu-users-navigation.html:21
+msgid "Учителя"
+msgstr "Учителя"
+
+#: accounts/templates/partial/navigation/menu-users-navigation.html:26
+msgid "Сотрудники"
+msgstr "Сотрудники"
+
+#: accounts/templates/partial/password-change-form.html:12
+#: accounts/templates/partial/password-change-form.html:33
+msgid "Пароль"
+msgstr "Пароль"
+
+#: accounts/templates/partial/password-change-form.html:23
+msgid "Сменить пароль"
+msgstr "Сменить пароль"
+
+#: accounts/templates/partial/password-change-form.html:40
+msgid "Подтверждение пароля"
+msgstr "Подтверждение пароля"
+
+#: accounts/templates/partial/password-change-form.html:51
+msgid "Сгенерировать"
+msgstr "Сгенерировать"
+
+#: accounts/templates/partial/password-change-form.html:59
+msgid "Сохранить пароль"
+msgstr "Сохранить пароль"
+
+#: accounts/templates/partial/profile-update-form.html:36
+msgid "Имя"
+msgstr "Имя"
+
+#: accounts/templates/partial/profile-update-form.html:40
+msgid "Фамилия"
+msgstr "Фамилия"
+
+#: accounts/templates/partial/profile-update-form.html:44
+msgid "Email"
+msgstr "Почта"
+
+#: accounts/templates/partial/profile-update-form.html:49
+msgid "О себе:"
+msgstr "О себе:"
+
+#: accounts/templates/partial/profile-update-form.html:55
+msgid "Права доступа"
+msgstr "Права доступа"
+
+#: accounts/templates/partial/profile-update-form.html:60
+msgid "Часовой пояс"
+msgstr "Часовой пояс"
+
+#: accounts/templates/partial/profile-update-form.html:64
+msgid "Телефон"
+msgstr "Телефон"
+
+#: accounts/templates/partial/profile-update-form.html:66
+msgid "Сохранить изменения"
+msgstr "Сохранить изменения"
+
+#: accounts/templates/partial/staff-filtration-by-role.html:7
+msgid "Фильтрация по доступу"
+msgstr "Фильтрация по доступу"
+
+#: accounts/templates/partial/users-search.html:9
+msgid "Введите имя или ID..."
+msgstr "Введите имя или ID..."
+
+#: accounts/templates/profile-create.html:15
+msgid "Регистрация пользователя"
+msgstr "Регистрация пользователя"
+
+#: accounts/templates/profile-create.html:24
+msgid "Зарегистрировать"
+msgstr "Зарегистрировать"
+
+#: accounts/templates/profile-create.html:30
+msgid "Сгенерировать пароль"
+msgstr "Сгенерировать пароль"
+
+#: accounts/templates/profile-detail.html:48
+msgid "Последний вход"
+msgstr "Последний вход"
+
+#: accounts/templates/profile-detail.html:53
+#: accounts/templates/profile-detail.html:60
+msgid "Баланс уроков"
+msgstr "Баланс уроков"
+
+#: accounts/templates/profile-detail.html:56
+#: accounts/templates/profile-detail.html:62
+#: accounts/templates/profile-detail.html:148
+msgid "ур."
+msgstr "ур."
+
+#: accounts/templates/profile-detail.html:70
+msgid "Начислить уроки"
+msgstr "Начислить уроки"
+
+#: accounts/templates/profile-detail.html:101
+msgid "Фильтровать"
+msgstr "Фильтровать"
+
+#: accounts/templates/profile-detail.html:111
+msgid "Пройдено"
+msgstr "Пройдено"
+
+#: accounts/templates/profile-detail.html:115
+msgid "Запланировано"
+msgstr "Запланировано"
+
+#: accounts/templates/profile-detail.html:119
+msgid "Отменено"
+msgstr "Отменено"
+
+#: accounts/templates/profile-update.html:23
+msgid "Удалить пользователя"
+msgstr "Удалить пользователя"
+
+#: accounts/templates/staff-list.html:53
+msgid "Профайл сотрудника"
+msgstr "Профайл сотрудника"
+
+#: accounts/templates/students-list.html:52
+msgid "Профайл ученика"
+msgstr "Профайл ученика"
+
+#: accounts/templates/teachers-list.html:49
+msgid "Профайл учителя"
+msgstr "Профайл учителя"
+
+#: accounts/views.py:24
+msgid "Некорректные данные"
+msgstr "Некорректные данные"
+
+#: accounts/views.py:30
+msgid "Пользователь не найден"
+msgstr "Пользователь не найден"
+
+#: accounts/views.py:55
+msgid "Пользователь добавлен! "
+msgstr "Пользователь добавлен!"
+
+#: accounts/views.py:126
+msgid "Профайл успешно изменен!"
+msgstr "Профайл успешно изменен!"
+
+#: accounts/views.py:153
+msgid "Пароль успешно изменен!"
+msgstr "Профайл успешно изменен!"
+
+#: chat/templates/chat-modal.html:15
+msgid "Написать в службу поддержки"
+msgstr "Написать в службу поддержки"
+
+#: chat/templates/chat-modal.html:20
+msgid "Отменить"
+msgstr "Отменить"
+
+#: chat/templates/chat-modal.html:22
+msgid "Отправить"
+msgstr "Отправить"
+
+#: chat/views.py:19
+msgid "Ваше сообщение успешно отправлено. Мы ответим вам на Ваш email"
+msgstr "Ваше сообщение успешно отправлено. Мы ответим вам на Ваш email"
+
+#: core/settings.py:128
+msgid "Russian"
+msgstr "Русский"
+
+#: core/settings.py:129
+msgid "English"
+msgstr "Английский"
+
+#: KaifSchool/templates/index.html:73
+msgid "Lessons"
+msgstr "Уроки"

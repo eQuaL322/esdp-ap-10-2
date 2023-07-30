@@ -1,0 +1,89 @@
+{% load initials_avatar %}
+{% load thumbnail %}
+{% load i18n %}
+<form method="post" action="{% url 'profile-update' user_obj.pk %} "
+      enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="my-5">
+        <div class="row g-3">
+            <div class="col-12 col-md-4" style="text-align: center;">
+                {% if user_obj.avatar %}
+                    {% thumbnail user_obj.avatar "201x201" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}" class="avatar"
+                             alt="account"
+                             id="profile-avatar"
+                             role="button" data-bs-toggle="dropdown"
+                             aria-expanded="false">
+                    {% endthumbnail %}
+                {% else %}
+                    <img src="{% render_initials_avatar name=user_obj.first_name %}" class="avatar"
+                         alt="account" id="profile-avatar"
+                         role="button" data-bs-toggle="dropdown"
+                         aria-expanded="false">
+                {% endif %}
+                <div class="mb-3">
+                    <label class="avatar-label" for="id_password"></label>
+                    <div class="my-3 avatar-input">
+                        <span class="btn btn-file"
+                              style="background-color: #f5f5fa; color: #8d8da6">{% trans "Редактировать" %}{{ form.avatar }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-8">
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>{% trans "Имя" %}</td>
+                        <td>{{ form.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Фамилия" %}</td>
+                        <td>{{ form.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Email" %}</td>
+                        <td data-role="{{ user.role }}" class="td-email">{{ form.email }} </td>
+                    </tr>
+                    {% if user.role == 'Theacher' or user.is_superuser is True %}
+                        <tr>
+                            <td>{% trans "О себе:" %}</td>
+                            <td>{{ form.bio_text }}</td>
+                        </tr>
+                    {% endif %}
+                    {% if user.role == "Admin"  or user.is_superuser == True %}
+                        <tr>
+                            <td>{% trans "Права доступа" %}</td>
+                            <td>{{ form.role }}
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td>{% trans "Часовой пояс" %}</td>
+                        <td>{{ form.timezone }}</td>
+                    </tr>
+                    <tr>
+                        <td>{% trans "Телефон" %}</td>
+                        <td>{{ form.phone }}
+                            <br><input type="submit" class="main-style-button" value='{% trans "Сохранить изменения" %}'></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</form>
+{% block script %}
+    <script>
+        $(document).ready(function () {
+            $("body").on("click", ".td-email", function (e) {
+                e.preventDefault();
+                const role = $(this).data("role");
+
+                if (role !== "Admin") {
+                    $("#id_email").attr("disabled", true);
+                } else {
+                    $("#id_email").attr("disabled", false);
+                }
+            });
+        })
+    </script>
+{% endblock %}

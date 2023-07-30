@@ -1,0 +1,62 @@
+{% if task.task_answers.all %}
+<form id="task-form-{{ task.id }}">
+    {% for answer in task.task_answers.all %}
+        <div class="answer-row form-check"> <!-- Добавлен класс answer-row -->
+            <input type="checkbox" id="answer_{{ task.id }}_{{ answer.id }}"
+                   name="task_{{ task.id }}_answer" value="{{ answer.id }}" class="form-check-input">
+            <label for="answer_{{ task.id }}_{{ answer.id }}"
+                   class="answer-label form-check-label ">{{ answer.answer_text }}</label>
+        </div>
+    {% endfor %}
+    <br>
+    <button type="submit" class="answer-button">Ответить</button>
+</form>
+
+<script>
+    // JavaScript для обработки отправки формы и проверки ответа
+    document.getElementById('task-form-{{ task.id }}').addEventListener('submit', function (event) {
+        event.preventDefault(); // Предотвращаем отправку формы
+
+        // Получаем выбранный ответ
+        let selectedAnswerId = document.querySelector('input[name="task_{{ task.id }}_answer"]:checked').value;
+
+        // Удаляем классы подсветки у всех строк ответа
+        let answerRows = document.querySelectorAll('.answer-row');
+        answerRows.forEach(function (row) {
+            row.classList.remove('correct-answer');
+            row.classList.remove('incorrect-answer');
+        });
+
+        // Проверяем правильность ответа
+        let isCorrect = false;
+        {% for answer in task.task_answers.all %}
+            {% if answer.is_correct %}
+                if (selectedAnswerId === '{{ answer.id }}') {
+                    isCorrect = true;
+                }
+            {% endif %}
+        {% endfor %}
+
+        let selectedAnswerRow = document.querySelector('input[name="task_{{ task.id }}_answer"]:checked').parentNode;
+        if (isCorrect) {
+            // Правильный ответ
+            selectedAnswerRow.classList.add('correct-answer');
+        } else {
+            // Неправильный ответ
+            selectedAnswerRow.classList.add('incorrect-answer');
+        }
+    });
+
+    // JavaScript для удаления подсветки при изменении выбора ответа
+    var answerRadios = document.querySelectorAll('input[name="task_{{ task.id }}_answer"]');
+    answerRadios.forEach(function (radio) {
+        radio.addEventListener('change', function () {
+            let answerRows = document.querySelectorAll('.answer-row');
+            answerRows.forEach(function (row) {
+                row.classList.remove('correct-answer');
+                row.classList.remove('incorrect-answer');
+            });
+        });
+    });
+</script>
+{% endif %}

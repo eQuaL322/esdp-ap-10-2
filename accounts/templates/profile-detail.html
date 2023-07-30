@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load thumbnail %}
+{% load django_bootstrap5 %}
+{% load bootstrap_icons %}
+{% load initials_avatar %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+{% block title %}Kaif School{% endblock %}
+{% block content %}{% block admin-content %}
+    <div class="content" style="min-height: calc((100vh - 65px) - 0px);">
+        <div class="px-0 container-fluid col-md-10">
+            {% if user.role != "Admin" %}
+                {% include 'partial/navigation/main_users_navigation.html' with page='settings' %}
+            {% endif %}
+            <div class="page-container">
+                {% include 'partial/navigation/menu-settings-navigation.html' with page='profile-detail' %}
+                <div class="my-5">
+                    <div class="row g-3">
+                        <div class="col-11 col-md-4" style="text-align: center;">
+                            {% if user_obj.avatar %}
+                                {% thumbnail user_obj.avatar "201x201" crop="center" as im %}
+                                    <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                                         class="avatar"
+                                         alt="account"
+                                         id="profile-avatar"
+                                         role="button" data-bs-toggle="dropdown"
+                                         aria-expanded="false">
+                                {% endthumbnail %}
+                            {% else %}
+                                <img src="{% render_initials_avatar name=user_obj.first_name %}" class="avatar"
+                                     alt="account" id="profile-avatar"
+                                     role="button" data-bs-toggle="dropdown"
+                                     aria-expanded="false">
+                            {% endif %}
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <h3 class="profile-header">{{ user_obj.first_name }}</h3>
+                            <div class="td-inline">
+                                <div class="id-icon">ID</div>
+                                <p class="p-inline"> {{ user_obj.pk }}</p>
+                                <p class="p-inline"> |</p>
+                                <p class="p-inline">{% bs_icon 'envelope-fill' size='1.4em' color='#a4a4a9' %}</p>
+                                <p class="p-inline">{{ user_obj.email }}</p>
+                            </div>
+                            <p style="margin-top: -10px;">{% trans 'Последний вход' %}: {{ user_obj.last_login|default_if_none:'not active' }}</p>
+                            {% if user.role == "Student" or user.role == "Admin" and user_obj.role == "Student" or user.is_superuser is True and user_obj.role == "Student" %}
+                                <hr style="margin-top: 0; color: #b2b2c3">
+                                {% for lesson_count in  user_obj.lesson_balance.all %}
+                                    <h5 class="balance-header mt-4"
+                                        style="color: #7b7b8c;">{% trans "Баланс уроков" %}
+                                        <span id="balance"
+                                              class="badge btn-green-plus-small"
+                                              style="border-radius: 2rem;">{{ lesson_count.balance }} {% trans "ур." %}</span>
+                                    </h5>
+                                {% empty %}
+                                    <h5 class="balance-header mt-4"
+                                        style="color: #7b7b8c;">{% trans "Баланс уроков" %}
+                                        <span class="badge btn-green-plus-small"
+                                              style="border-radius: 2rem;">0 {% trans "ур." %}</span>
+                                    </h5>
+                                {% endfor %}
+                            {% endif %}
+                            {% if user.role == 'Admin' and user_obj.role == "Student" or user.is_superuser is True and user_obj.role == "Student" %}
+                                <div class="accordion accordion-flush mb-4" id="accordionFlushExample">
+                                    <div class="accordion-item td-inline">
+                                        <h5 class="accordion-header" style="color: #7b7b8c;">
+                                            {% trans "Начислить уроки" %}
+                                            <button type="button" class="btn-green-plus-small" data-bs-toggle="collapse"
+                                                    data-bs-target="#flush-collapseOne"
+                                                    aria-expanded="false" aria-controls="flush-collapseOne">+
+                                            </button>
+                                        </h5>
+                                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                             data-bs-parent="#accordionFlushExample">
+                                            <div class="accordion-body">
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" aria-label="Balance"
+                                                           aria-describedby="button-addon2" id="count">
+                                                    <button class="btn"
+                                                            style="border: 1px solid #ced4da; color: #7b7b8c;"
+                                                            type="button"
+                                                            id="button-addon2">{% trans "Добавить" %}</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            <hr>
+                            {% if user.role == 'Student' or  user.role == 'Teacher' or  user.role == 'Admin' %}
+                                <div class="td-inline">
+                                    <form method="post" id="lesson-count-form">
+                                        {% csrf_token %}
+                                        <div class="input-group mt-4">
+                                            {{ form.as_p }}
+                                            <button type="submit" class="btn-lesson-count-filter btn"
+                                                    id="lesson-count-filtered">
+                                                {% trans "Фильтровать" %}
+                                            </button>
+                                        </div>
+                                    </form>
+                                    <button type="button" class="btn mb-2" id="clear-button">
+                                        {% bs_icon 'arrow-clockwise' size='0.6em' extra_classes="fs-1 icon-l-nav" %}
+                                    </button>
+                                </div>
+                                <br>
+                                <button type="button" class="btn btn-count-completed">
+                                    {% trans "Пройдено" %}<span class="badge text-bg-light"
+                                                   id="completed_lessons_count">{{ completed_lessons_count }}</span>
+                                </button>
+                                <button type="button" class="btn btn-count-planned">
+                                    {% trans "Запланировано" %}<span class="badge text-bg-light"
+                                                        id="planned_lessons_count">{{ planned_lessons_count }}</span>
+                                </button>
+                                <button type="button" class="btn btn-count-canceled">
+                                    {% trans "Отменено" %}<span class="badge text-bg-light"
+                                                   id="canceled_lessons_count">{{ canceled_lessons_count }}</span>
+                                </button>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}{% endblock %}
+{% block script %}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("body").on("click", "#button-addon2", function (e) {
+                e.preventDefault();
+                let balance = $('#count').val();
+                $.ajax({
+                    url: '{% url 'lesson_count' user_obj.pk %}',
+                    type: 'POST',
+                    dataType: 'json',
+                    headers: {
+                        "X-CSRFTOKEN": "{{ csrf_token }}"
+                    },
+                    data: {
+                        "pk": {{ user_obj.pk }},
+                        "balance": balance,
+                    },
+                    success: function (response) {
+                        $("#balance").text(response.balance + ' ' + `{% trans "ур." %}`);
+                    }
+                });
+            });
+        });
+        $(document).ready(function () {
+            $("body").on("click", "#lesson-count-filtered", function (e) {
+                    e.preventDefault();
+                    let start_date = $('#id_start_date').val();
+                    let end_date = $('#id_end_date').val();
+                    $.ajax({
+                        type: 'POST',
+                        url: '{% url "lesson_count_filtered" user_obj.pk %}',
+                        headers: {
+                            "X-CSRFTOKEN": "{{ csrf_token }}"
+                        },
+                        data: {
+                            start_date: start_date,
+                            end_date: end_date
+                        },
+                        success: function (response) {
+                            $('#planned_lessons_count').text(response.planned_count);
+                            $('#completed_lessons_count').text(response.completed_count);
+                            $('#canceled_lessons_count').text(response.canceled_count);
+                        }
+                    });
+                }
+            )
+        });
+        let clearButton = document.getElementById('clear-button');
+        let form = document.getElementById('lesson-count-form');
+        clearButton.addEventListener('click', function (event) {
+            event.preventDefault();
+            form.reset();
+            $('#planned_lessons_count').text({{ planned_lessons_count }});
+            $('#completed_lessons_count').text({{ completed_lessons_count }});
+            $('#canceled_lessons_count').text({{ canceled_lessons_count }});
+        });
+    </script>
+{% endblock %}

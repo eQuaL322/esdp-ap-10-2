@@ -1,0 +1,50 @@
+{% load i18n %}
+{% load initials_avatar %}
+{% load thumbnail %}
+{% if theme.cover %}
+    <div class="dropdown-center">
+        {% thumbnail theme.cover "45x45" crop="center" as im %}
+            <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                 class="icon-squared dropdown-toggle" alt="current theme"
+                 role="button" data-bs-toggle="dropdown"
+                 aria-expanded="false">
+        {% endthumbnail %}
+        <div class="dropdown-menu">
+            <div class="card" style="width: 18rem; border: none; color: #525266;">
+                <div class="card-body">
+                    <h5 class="current-lesson-title">{% trans 'Текущий урок' %}</h5>
+                    {% thumbnail theme.cover "70x88" crop="center" as im %}
+                        <img src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}"
+                             class="icon-squared-big my-3" alt="current theme">
+                    {% endthumbnail %}
+                    <div style="display: inline-block">
+                        <div class="current-lesson-text nav-color-active mx-2">{{ theme.title }}</div>
+                        <div class="nav-color mx-2" style="font-weight: normal">{{ theme.theme_creator }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="dropdown-center" style="margin: 0 0 0 3px">
+        <img src="{% render_initials_avatar name=theme.title %}" class="icon-squared dropdown-toggle"
+             alt="account"
+             role="button" data-bs-toggle="dropdown"
+             aria-expanded="false">
+        <div class="dropdown-menu">
+            <div class="card" style="width: 18rem; border: none; color: #525266;">
+                <a href="{% url 'theme_detail' theme.pk %}" class="exercise-link">
+                <div class="card-body">
+                    <h5 class="current-lesson-title">{% trans 'Текущий урок' %}</h5>
+                    <img src="{% render_initials_avatar name=theme.title %}" class="icon-squared-big"
+                         alt="current theme">
+                    <div style="display: inline-block">
+                        <div class="current-lesson-text nav-color-active mx-2">{{ theme.title }}</div>
+                        <div class="nav-color mx-2" style="font-weight: normal">{{ theme.theme_creator }}</div>
+                    </div>
+                </div>
+                </a>
+            </div>
+        </div>
+    </div>
+{% endif %}
